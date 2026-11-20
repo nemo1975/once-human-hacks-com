@@ -1,0 +1,41 @@
+---
+import { PRIMARY_CHECKOUT_PATH } from '../config/checkout';
+import { Button } from '@/components/starwind/button';
+import Icon from './icons/Icon.astro';
+
+const plans = [
+  { id: 'weekly', label: 'Weekly access', note: 'Short test window. Duration is selected on checkout.' },
+  { id: 'monthly', label: 'Monthly access', note: 'Standard license window. Duration is selected on checkout.', popular: true },
+  { id: 'lifetime', label: 'Lifetime access', note: 'Long-term license option. Duration is selected on checkout.' },
+];
+---
+
+<section class="border-t border-border bg-muted/10 py-10 md:py-14" aria-labelledby="plan-duration-title">
+  <div class="mx-auto max-w-6xl px-5">
+    <h2 id="plan-duration-title" class="font-[family-name:var(--font-heading)] text-2xl font-semibold">
+      Choose your key duration
+    </h2>
+    <p class="mt-2 max-w-2xl text-sm text-muted-foreground">
+      Plan lengths are selected on the merchant checkout page. This site does not display prices.
+    </p>
+    <ul class="mt-8 grid gap-4 sm:grid-cols-3">
+      {
+        plans.map((plan) => (
+          <li class="flex flex-col rounded-2xl border border-border/70 bg-card p-5 shadow-sm">
+            <p class="text-xs font-semibold uppercase tracking-wide text-primary">{plan.label}</p>
+            <p class="mt-2 text-sm text-muted-foreground">{plan.note}</p>
+            {plan.popular && (
+              <span class="mt-3 inline-flex w-fit rounded-full bg-primary/15 px-2.5 py-0.5 text-xs font-medium text-primary">
+                Popular
+              </span>
+            )}
+            <Button as="a" href={PRIMARY_CHECKOUT_PATH} rel="noopener noreferrer sponsored" variant="primary" size="sm" class="mt-5 w-full rounded-xl">
+              Continue to checkout
+              <Icon name="arrowRight" size={16} />
+            </Button>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

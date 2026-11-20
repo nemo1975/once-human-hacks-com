@@ -1,0 +1,156 @@
+---
+import {
+  REVIEW_FILTER_LABELS,
+  REVIEW_SUMMARY,
+  getAllSiteReviews,
+  type ReviewProductFilter,
+} from '../data/reviews';
+
+const allReviews = getAllSiteReviews();
+const filterKeys = Object.keys(REVIEW_FILTER_LABELS) as ReviewProductFilter[];
+---
+
+<section class="py-10 md:py-14" aria-labelledby="reviews-list-title">
+  <div class="mx-auto max-w-6xl px-5">
+    <div class="flex flex-col gap-4 border-b border-border pb-6 sm:flex-row sm:items-end sm:justify-between">
+      <div class="text-left">
+        <h2 id="reviews-list-title" class="font-[family-name:var(--font-heading)] text-2xl font-semibold">
+          All player reviews
+        </h2>
+        <p class="mt-1 max-w-xl text-sm text-muted-foreground">
+          Filter by product or sort by date and rating — {REVIEW_SUMMARY.total}+ comments on aimbot, ESP, and loader setup.
+        </p>
+      </div>
+      <label class="flex shrink-0 items-center gap-2 text-sm text-muted-foreground">
+        <span class="sr-only">Sort reviews</span>
+        <span aria-hidden="true">Sort</span>
+        <select
+          data-reviews-sort
+          class="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground"
+        >
+          <option value="newest">Newest first</option>
+          <option value="oldest">Oldest first</option>
+          <option value="rating-high">Highest rating</option>
+          <option value="rating-low">Lowest rating</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="mt-6 flex flex-wrap gap-2" data-reviews-filters role="group" aria-label="Filter reviews by product">
+      {
+        filterKeys.map((key, i) => (
+          <button
+            type="button"
+            class:list={[
+              'rounded-full border border-border px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-primary hover:text-foreground',
+              { 'border-primary bg-primary/10 text-foreground': i === 0 },
+            ]}
+            data-reviews-filter={key}
+          >
+            {REVIEW_FILTER_LABELS[key]}
+          </button>
+        ))
+      }
+    </div>
+
+    <ul class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3" data-reviews-list>
+      {
+        allReviews.map((review) => (
+          <li
+            class="rounded-2xl border border-border/60 bg-muted/20 p-5"
+            data-review-item
+            data-review-filter={review.filter}
+            data-review-date={review.sortDate}
+            data-review-rating={String(review.rating)}
+            data-review-product={review.product}
+          >
+            <div class="flex items-center justify-between gap-2">
+              <p class="font-medium text-foreground">{review.author}</p>
+              <span class="text-xs text-muted-foreground">{review.when}</span>
+            </div>
+            <p class="mt-1 flex items-center justify-between gap-2">
+              <span class="text-xs uppercase tracking-wide text-primary">{review.product}</span>
+              <span class="text-xs tabular-nums text-muted-foreground" aria-label={`${review.rating} out of 5 stars`}>
+                {'★'.repeat(review.rating)}
+                {'☆'.repeat(5 - review.rating)}
+              </span>
+            </p>
+            <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{review.body}</p>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="mt-8 hidden text-center text-sm text-muted-foreground" data-reviews-empty>
+      No reviews match this filter. Try another product or reset to All products.
+    </p>
+  </div>
+</section>
+
+<script>
+  const initReviewsPage = () => {
+    const list = document.querySelector('[data-reviews-list]');
+    const filters = document.querySelector('[data-reviews-filters]');
+    const sortSelect = document.querySelector<HTMLSelectElement>('[data-reviews-sort]');
+    const empty = document.querySelector('[data-reviews-empty]');
+    if (!list || !filters || !sortSelect) return;
+
+    const items = () => Array.from(list.querySelectorAll<HTMLElement>('[data-review-item]'));
+    const chips = () => Array.from(filters.querySelectorAll<HTMLButtonElement>('[data-reviews-filter]'));
+
+    let activeFilter = 'all';
+
+    const apply = () => {
+      const sort = sortSelect.value;
+      const visible: HTMLElement[] = [];
+
+      items().forEach((item) => {
+        const match = activeFilter === 'all' || item.getAttribute('data-review-filter') === activeFilter;
+        item.hidden = !match;
+        if (match) visible.push(item);
+      });
+
+      visible.sort((a, b) => {
+        const dateA = a.getAttribute('data-review-date') ?? '';
+        const dateB = b.getAttribute('data-review-date') ?? '';
+        const ratingA = Number(a.getAttribute('data-review-rating') ?? 0);
+        const ratingB = Number(b.getAttribute('data-review-rating') ?? 0);
+        const productA = a.getAttribute('data-review-product') ?? '';
+        const productB = b.getAttribute('data-review-product') ?? '';
+
+        switch (sort) {
+          case 'oldest':
+            return dateA.localeCompare(dateB);
+          case 'rating-high':
+            return ratingB - ratingA || dateB.localeCompare(dateA);
+          case 'rating-low':
+            return ratingA - ratingB || dateB.localeCompare(dateA);
+          case 'newest':
+          default:
+            return dateB.localeCompare(dateA);
+        }
+      });
+
+      visible.forEach((node) => list.appendChild(node));
+      if (empty) empty.classList.toggle('hidden', visible.length > 0);
+    };
+
+    filters.addEventListener('click', (e) => {
+      const btn = (e.target as HTMLElement).closest<HTMLButtonElement>('[data-reviews-filter]');
+      if (!btn) return;
+      activeFilter = btn.getAttribute('data-reviews-filter') ?? 'all';
+      chips().forEach((chip) => {
+        const on = chip === btn;
+        chip.classList.toggle('border-primary', on);
+        chip.classList.toggle('bg-primary/10', on);
+        chip.classList.toggle('text-foreground', on);
+      });
+      apply();
+    });
+
+    sortSelect.addEventListener('change', apply);
+    apply();
+  };
+
+  initReviewsPage();
+  document.addEventListener('astro:after-swap', initReviewsPage);
+</script>

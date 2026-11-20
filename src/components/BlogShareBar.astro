@@ -1,0 +1,74 @@
+---
+import { canonicalUrl } from '../config/seo';
+
+interface Props {
+  title: string;
+  path: string;
+}
+
+const { title, path } = Astro.props;
+const pageUrl = canonicalUrl(path);
+const encodedUrl = encodeURIComponent(pageUrl);
+const encodedTitle = encodeURIComponent(title);
+
+const shares = [
+  { label: 'Share on X', href: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}` },
+  { label: 'Share on Facebook', href: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}` },
+  { label: 'Share on Reddit', href: `https://www.reddit.com/submit?url=${encodedUrl}&title=${encodedTitle}` },
+  { label: 'Share on WhatsApp', href: `https://wa.me/?text=${encodedTitle}%20${encodedUrl}` },
+  { label: 'Share on Telegram', href: `https://t.me/share/url?url=${encodedUrl}&text=${encodedTitle}` },
+];
+---
+
+<div class="blog-share flex flex-wrap items-center gap-2" data-share-bar data-share-url={pageUrl}>
+  <span class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Share</span>
+  {shares.map((item) => (
+    <a
+      class="inline-flex items-center gap-1 rounded-lg border border-border px-2.5 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+      href={item.href}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {item.label.replace('Share on ', '')}
+    </a>
+  ))}
+  <button
+    type="button"
+    class="inline-flex items-center gap-1 rounded-lg border border-border px-2.5 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+    data-copy-link
+  >
+    Copy link
+  </button>
+  <span class="sr-only" data-copy-status role="status" aria-live="polite"></span>
+  <noscript>
+    <p class="w-full text-xs text-muted-foreground">
+      Copy URL: <a class="break-all text-primary underline" href={pageUrl}>{pageUrl}</a>
+    </p>
+  </noscript>
+</div>
+
+<script>
+  document.querySelectorAll('[data-share-bar]').forEach((bar) => {
+    const url = bar.getAttribute('data-share-url') ?? '';
+    const button = bar.querySelector<HTMLButtonElement>('[data-copy-link]');
+    const status = bar.querySelector<HTMLElement>('[data-copy-status]');
+    button?.addEventListener('click', async () => {
+      try {
+        if (navigator.clipboard?.writeText) {
+          await navigator.clipboard.writeText(url);
+        } else {
+          const input = document.createElement('input');
+          input.value = url;
+          document.body.append(input);
+          input.select();
+          document.execCommand('copy');
+          input.remove();
+        }
+        if (status) status.textContent = 'Link copied';
+        if (button) button.textContent = 'Copied';
+      } catch {
+        if (status) status.textContent = `Copy this URL: ${url}`;
+      }
+    });
+  });
+</script>

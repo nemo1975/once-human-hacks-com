@@ -1,0 +1,56 @@
+---
+import type { ProductPage } from '../data/products';
+import { cheatTierIcons, productCategoryIcons } from '../data/sectionIcons';
+import CatalogCard from './CatalogCard.astro';
+import { productPath } from '../utils/path';
+
+interface Props {
+  products: ProductPage[];
+  class?: string;
+  maxFeatures?: number;
+}
+
+const { products, class: className, maxFeatures = 5 } = Astro.props;
+const isSingle = products.length === 1;
+
+function cardIcon(product: ProductPage) {
+  if (product.kind === 'tier') {
+    return cheatTierIcons[product.name] ?? 'crosshair';
+  }
+  return productCategoryIcons[product.category ?? ''] ?? 'package';
+}
+
+function cardLabel(product: ProductPage) {
+  if (product.kind === 'tier') {
+    return product.tier ?? product.name;
+  }
+  return product.category ?? 'Utility';
+}
+---
+
+<div
+  class:list={[
+    isSingle ? 'grid grid-cols-1' : 'grid items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-3',
+    className,
+  ]}
+>
+  {
+    products.map((product) => (
+      <CatalogCard
+        label={cardLabel(product)}
+        title={product.title}
+        href={productPath(product.slug)}
+        buyUrl={product.buyUrl}
+        features={product.features}
+        more={product.more}
+        icon={cardIcon(product)}
+        badge={product.badge}
+        variant={product.variant}
+        buyLabel={`Buy ${product.name} key`}
+        viewLabel={`See ${product.name} modules`}
+        maxFeatures={maxFeatures}
+        wide={isSingle}
+      />
+    ))
+  }
+</div>

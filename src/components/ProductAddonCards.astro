@@ -1,0 +1,24 @@
+---
+import { utilityPages } from '../data/products';
+import ProductCatalogGrid from './ProductCatalogGrid.astro';
+
+interface Props {
+  heading?: string;
+  subtitle?: string;
+}
+
+const {
+  heading = 'Utilities',
+  subtitle = 'Cloud DMA, HWID Spoofer, and Skin Changer sit beside the main Sand Hacks plans. Same card size as the hacks row. Checkout on the seller site.',
+} = Astro.props;
+---
+
+<section class="border-t border-border bg-muted/10 py-12 md:py-16" aria-labelledby="addon-products-title">
+  <div class="mx-auto max-w-6xl px-5">
+    <h2 id="addon-products-title" class="font-[family-name:var(--font-heading)] text-2xl font-semibold md:text-3xl">
+      {heading}
+    </h2>
+    <p class="mt-2 max-w-2xl text-sm text-muted-foreground md:text-base">{subtitle}</p>
+    <ProductCatalogGrid products={utilityPages} class="mt-8" />
+  </div>
+</section>

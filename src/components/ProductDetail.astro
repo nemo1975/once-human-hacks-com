@@ -1,0 +1,151 @@
+---
+import '../styles/product-cheat-page.css';
+import type { ProductPage } from '../data/products';
+import type { BreadcrumbItem } from '../utils/schema';
+import { getRelatedForumPosts } from '../data/forum';
+import ProductScreenshotGallery from './ProductScreenshotGallery.astro';
+import { getProductFaqs } from '../data/faq';
+import SiteFaqSection from './SiteFaqSection.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import ProductDetailHeader from './product/ProductDetailHeader.astro';
+import ProductCheckoutPanel from './product/ProductCheckoutPanel.astro';
+import ProductHighlightsSection from './product/ProductHighlightsSection.astro';
+import ProductFeaturesSection from './product/ProductFeaturesSection.astro';
+import ProductDescriptionSection from './product/ProductDescriptionSection.astro';
+import ProductExperienceSection from './product/ProductExperienceSection.astro';
+import ProductRelatedForumSection from './product/ProductRelatedForumSection.astro';
+import BlogShareBar from './BlogShareBar.astro';
+import ProductCatalogGrid from './ProductCatalogGrid.astro';
+import ProductRequirementsSection from './product/ProductRequirementsSection.astro';
+import { getProductFeatureGroups, hackPages, utilityPages } from '../data/products';
+
+interface Props {
+  product: ProductPage;
+  breadcrumbs?: BreadcrumbItem[];
+  showShareBar?: boolean;
+  shareTitle?: string;
+  sharePath?: string;
+}
+
+const { product, breadcrumbs, showShareBar = false, shareTitle, sharePath } = Astro.props;
+const productFaqs = getProductFaqs(product.slug, product.kind);
+const relatedPosts = getRelatedForumPosts(product.relatedForumSlugs, 6);
+
+const galleryAltPrefix = product.slug === 'complete' ? 'Complete – ' : '';
+
+const descriptionBlocks = [
+  ...product.overview.paragraphs.map((text) => ({ type: 'p' as const, text })),
+  ...(product.about ?? []),
+  ...product.body,
+];
+
+const showDescToggle = descriptionBlocks.length > 2;
+const featureGroups = getProductFeatureGroups(product.slug);
+const overviewDesc =
+  product.kind === 'utility'
+    ? 'How this utility fits Windows setup, Cloud DMA notes, and merchant checkout.'
+    : 'How this build fits city extracts, trampler raids, dune crossings, and patch-day workflows.';
+const requirementsDesc =
+  product.kind === 'utility'
+    ? 'Confirm your Windows PC and any listed extras (Hyper-V, admin rights, Cloud DMA) before checkout.'
+    : 'Confirm your Windows PC and SAND: Raiders of Sophie setup before checkout or loader install.';
+const relatedHeading = product.kind === 'utility' ? 'Main hacks' : 'Utilities';
+const relatedSubtitle =
+  product.kind === 'utility'
+    ? 'Complete Sand Hacks uses the same card size as the utilities row on the product hub.'
+    : 'Cloud DMA, HWID Spoofer, and Skin Changer use the same three-card layout as the product hub.';
+const relatedProducts = product.kind === 'utility' ? hackPages : utilityPages;
+---
+
+<div class="product-detail">
+<section class="product-detail-hero py-8 md:py-12">
+  <div class="mx-auto max-w-6xl px-5">
+    {breadcrumbs && <Breadcrumbs items={breadcrumbs} class="product-detail__breadcrumbs" />}
+
+    <div class="mt-6">
+      <ProductDetailHeader product={product} />
+      {
+        showShareBar && sharePath && (
+          <div class="mt-4">
+            <BlogShareBar title={shareTitle ?? product.title} path={sharePath} />
+          </div>
+        )
+      }
+    </div>
+
+    <div class="product-detail-hero__grid mt-10 grid">
+      <ProductScreenshotGallery
+        images={product.images}
+        id={`gallery-${product.slug}`}
+        mainImageAltPrefix={galleryAltPrefix}
+      />
+      <ProductCheckoutPanel product={product} />
+    </div>
+  </div>
+</section>
+
+<ProductHighlightsSection product={product} />
+
+<ProductDescriptionSection
+  overviewTitle={product.overview.title}
+  blocks={descriptionBlocks}
+  showToggle={showDescToggle}
+  desc={overviewDesc}
+/>
+
+<ProductFeaturesSection
+  featureGroups={featureGroups}
+  productName={product.name}
+  desc={
+    product.kind === 'utility'
+      ? `Modules listed with ${product.name}. Confirm the live list on merchant checkout—utility notes can change after a Windows or SAND update.`
+      : undefined
+  }
+/>
+
+<ProductRequirementsSection requirements={product.systemRequirements} desc={requirementsDesc} />
+
+<section class="border-t border-border bg-muted/10 py-12 md:py-16" aria-labelledby="related-catalog-title">
+  <div class="mx-auto max-w-6xl px-5">
+    <h2 id="related-catalog-title" class="font-[family-name:var(--font-heading)] text-2xl font-semibold md:text-3xl">
+      {relatedHeading}
+    </h2>
+    <p class="mt-2 max-w-2xl text-sm text-muted-foreground md:text-base">{relatedSubtitle}</p>
+    <ProductCatalogGrid products={relatedProducts} class="mt-8" />
+  </div>
+</section>
+
+<ProductExperienceSection
+  images={product.images}
+  acquisition={product.acquisition}
+  productName={product.name}
+  previewHeading={product.kind === 'utility' ? 'What this utility covers' : 'In-game layers'}
+/>
+
+<ProductRelatedForumSection posts={relatedPosts} productName={product.name} />
+
+<SiteFaqSection
+  id="faq"
+  items={productFaqs}
+  titleId={`catalog-faq-${product.slug}`}
+  class="border-t border-border bg-background"
+/>
+</div>
+
+<script>
+  const initProductDetailUi = () => {
+    document.querySelectorAll('[data-desc-toggle]').forEach((btn) => {
+      if (btn.hasAttribute('data-desc-bound')) return;
+      btn.setAttribute('data-desc-bound', '');
+      btn.addEventListener('click', () => {
+        const wrap = btn.closest('[data-desc-wrap]');
+        if (!wrap) return;
+        const open = wrap.classList.toggle('open');
+        btn.textContent = open ? btn.getAttribute('data-less') ?? 'Show less' : btn.getAttribute('data-more') ?? 'Show more';
+      });
+    });
+  };
+
+  initProductDetailUi();
+  document.addEventListener('astro:after-swap', initProductDetailUi);
+</script>

@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { t } from '../i18n';
+import { resolvePageSeo } from '../config/seo';
+import LegalPage from '../components/LegalPage.astro';
+import PageSeoExpansion from '../components/PageSeoExpansion.astro';
+import { aboutExpansion, expansionFaqsToSchema } from '../data/pageExpansions';
+import { breadcrumbSchema, faqPageSchema, organizationSchema, webPageSchema } from '../utils/schema';
+
+const seo = resolvePageSeo('/about/');
+const content = t.legalPages.about;
+const aboutFaqs = expansionFaqsToSchema(aboutExpansion.faqs);
+---
+
+<BaseLayout
+  title={seo.title}
+  description={seo.description}
+  logoAlt="Sand Hacks logo"
+  jsonLd={[
+    organizationSchema(),
+    webPageSchema({
+      name: content.title,
+      description: content.description,
+      url: '/about/',
+    }),
+    faqPageSchema(aboutFaqs),
+    breadcrumbSchema([
+      { name: 'Homepage', path: '/' },
+      { name: 'About', path: '/about/' },
+    ]),
+  ]}
+>
+  <LegalPage
+    title={content.title}
+    description={content.description}
+    breadcrumbLabel="About"
+    sections={content.sections}
+    shareTitle={seo.title}
+    sharePath="/about/"
+  />
+  <PageSeoExpansion
+    sections={aboutExpansion.sections}
+    table={aboutExpansion.table}
+    faqs={aboutExpansion.faqs}
+    faqHeading="Sand Hacks FAQ"
+    faqSubtitle="How this site relates to plans, forums, checkout, and support."
+    trustHeading={aboutExpansion.trustHeading}
+    trustItems={aboutExpansion.trustItems}
+    cta={aboutExpansion.cta}
+  />
+</BaseLayout>

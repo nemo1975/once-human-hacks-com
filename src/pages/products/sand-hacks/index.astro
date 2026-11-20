@@ -1,0 +1,98 @@
+---
+import '../../../styles/product-cheat-page.css';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { t } from '../../../i18n';
+import { productHub, productPages, hackPages, utilityPages } from '../../../data/products';
+import { resolvePageSeo } from '../../../config/seo';
+import { breadcrumbSchema, collectionPageSchema, itemListSchema } from '../../../utils/schema';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import ProductCatalogGrid from '../../../components/ProductCatalogGrid.astro';
+import { PRIMARY_CHECKOUT_PATH } from '../../../config/checkout';
+import { Button } from '@/components/starwind/button';
+import Icon from '../../../components/icons/Icon.astro';
+import { productPath } from '../../../utils/path';
+import BlogShareBar from '../../../components/BlogShareBar.astro';
+import PageSeoExpansion from '../../../components/PageSeoExpansion.astro';
+import { productHubExpansion, expansionFaqsToSchema } from '../../../data/pageExpansions';
+import { faqPageSchema } from '../../../utils/schema';
+
+const seo = resolvePageSeo('/products/sand-hacks/');
+const hubFaqs = expansionFaqsToSchema(productHubExpansion.faqs);
+const breadcrumbs = [
+  { name: 'Homepage', path: '/' },
+  { name: 'Product hub', path: productHub.path },
+];
+---
+
+<BaseLayout
+  title={seo.title}
+  description={seo.description}
+  logoAlt="SAND: Raiders of Sophie Hacks – Sand Hacks logo"
+  jsonLd={[
+    collectionPageSchema({
+      name: productHub.title,
+      description: productHub.description,
+      url: productHub.path,
+    }),
+    breadcrumbSchema(breadcrumbs),
+    itemListSchema(
+      productPages.map((product) => ({
+        name: product.title,
+        url: productPath(product.slug),
+      })),
+    ),
+    faqPageSchema(hubFaqs),
+  ]}
+>
+  <section class="py-8 md:py-12">
+    <div class="mx-auto max-w-6xl px-5">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <div class="mt-6 max-w-3xl space-y-3">
+        <h1 class="text-3xl font-bold normal-case md:text-4xl">SAND: Raiders of Sophie Hacks</h1>
+        <p class="text-lg text-muted-foreground">
+          Sand Hacks for SAND: Raiders of Sophie on Windows PC. The main product is the Complete suite. Utilities—Cloud DMA, HWID Spoofer, and Skin Changer—sit in the row below.
+        </p>
+        <BlogShareBar title={seo.title} path={productHub.path} />
+      </div>
+
+      <div id="hacks" class="mt-10">
+        <h2 class="text-xl font-semibold normal-case text-foreground">{t.products.hacksTitle}</h2>
+        <p class="mt-2 max-w-2xl text-base text-muted-foreground">{t.products.hacksSubtitle}</p>
+        <ProductCatalogGrid products={hackPages} class="mt-8" />
+      </div>
+
+      <div id="utilities" class="mt-16">
+        <h2 class="text-xl font-semibold normal-case text-foreground">{t.products.utilitiesTitle}</h2>
+        <p class="mt-2 max-w-2xl text-base text-muted-foreground">{t.products.utilitiesSubtitle}</p>
+        <ProductCatalogGrid products={utilityPages} class="mt-8" />
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-border bg-muted/10 py-10 md:py-14" aria-labelledby="product-features-hub-title">
+    <div class="mx-auto max-w-6xl px-5">
+      <h2 id="product-features-hub-title" class="font-[family-name:var(--font-heading)] text-2xl font-semibold">
+        Product features
+      </h2>
+      <p class="mt-2 max-w-2xl text-sm text-muted-foreground">
+        Aimbot, player ESP, trampler ESP, item ESP, radar, and object ESP are listed on the Complete page. Cloud DMA, HWID Spoofer, and Skin Changer follow their merchant listings. Open a card for the full group list. We do not display prices on this site.
+      </p>
+      <Button as="a" href={PRIMARY_CHECKOUT_PATH} rel="noopener noreferrer sponsored" variant="primary" size="lg" class="mt-6 rounded-xl">
+        Continue to checkout
+        <Icon name="arrowRight" size={17} />
+      </Button>
+    </div>
+  </section>
+
+  <PageSeoExpansion
+    sections={productHubExpansion.sections}
+    table={productHubExpansion.table}
+    faqs={productHubExpansion.faqs}
+    faqHeading="Plans FAQ"
+    faqSubtitle="Compatibility, checkout, updates, utilities, and risk, answered before you pick a product."
+    trustHeading={productHubExpansion.trustHeading}
+    trustItems={productHubExpansion.trustItems}
+    cta={productHubExpansion.cta}
+  />
+</BaseLayout>

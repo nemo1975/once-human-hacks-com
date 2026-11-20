@@ -1,0 +1,11 @@
+/**
+ * Semantic color aliases — values come from starwind.css (:root / .dark).
+ * (--primary, --border, --primary-accent remain defined in starwind.css.)
+ */
+:root,
+.dark {
+  --bg: var(--background);
+  --surface: var(--card);
+  --text: var(--foreground);
+  --text-muted: var(--muted-foreground);
+}

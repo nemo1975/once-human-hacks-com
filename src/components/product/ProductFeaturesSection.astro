@@ -1,0 +1,51 @@
+---
+import SectionHeader from '../SectionHeader.astro';
+import Icon from '../icons/Icon.astro';
+
+export interface ProductFeatureGroup {
+  heading: string;
+  desc?: string;
+  features: readonly string[];
+}
+
+interface Props {
+  featureGroups: ProductFeatureGroup[];
+  productName: string;
+  desc?: string;
+}
+
+const { featureGroups, productName, desc } = Astro.props;
+const headerDesc =
+  desc ??
+  `Modules listed with ${productName}. Confirm the live list on merchant checkout—feature names can change after a SAND patch.`;
+---
+
+<section id="product-features" class="py-12 md:py-16" aria-labelledby="product-features-title">
+  <div class="mx-auto max-w-6xl px-5">
+    <SectionHeader
+      eyebrow="Modules"
+      title="What's included"
+      desc={headerDesc}
+      titleId="product-features-title"
+    />
+
+    <div class="mt-10 space-y-10">
+      {
+        featureGroups.map((group) => (
+          <div>
+            <h3 class="text-sm font-semibold uppercase tracking-wide text-primary">{group.heading}</h3>
+            {group.desc ? <p class="mt-1 max-w-3xl text-sm text-muted-foreground">{group.desc}</p> : null}
+            <ul class="product-detail__features mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+              {group.features.map((feature) => (
+                <li class="flex items-start gap-2.5 rounded-xl border border-border/80 bg-muted/15 px-4 py-3 text-sm text-muted-foreground transition-colors hover:border-primary/25 hover:bg-muted/30">
+                  <Icon name="check" size={15} class="product-feature-check mt-0.5 shrink-0 icon-app--primary" />
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,106 @@
+---
+import '../../styles/blog-pages.css';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import Icon from '../../components/icons/Icon.astro';
+import { getAllBlogPosts } from '../../lib/blog';
+import { resolvePageSeo } from '../../config/seo';
+import BlogShareBar from '../../components/BlogShareBar.astro';
+import { breadcrumbSchema, collectionPageSchema } from '../../utils/schema';
+
+const seo = resolvePageSeo('/blog/');
+const posts = await getAllBlogPosts();
+const breadcrumbs = [
+  { name: 'Homepage', path: '/' },
+  { name: 'Blog archive', path: '/blog/' },
+];
+
+function searchBlob(post: (typeof posts)[number]) {
+  return [
+    post.data.title,
+    post.data.description,
+    post.data.category,
+    ...post.data.keywords,
+    post.id.replace(/-/g, ' '),
+  ]
+    .join(' ')
+    .toLowerCase();
+}
+---
+
+<BaseLayout
+  title={seo.title}
+  description={seo.description}
+  logoAlt="Blog – Sand Hacks logo"
+  jsonLd={[
+    collectionPageSchema({ name: seo.title, description: seo.description, url: '/blog/' }),
+    breadcrumbSchema(breadcrumbs),
+  ]}
+>
+  <section class="blog-index-hero border-b border-border bg-muted/10 py-8 md:py-12">
+    <div class="mx-auto max-w-6xl px-5">
+      <div class="blog-index-hero__crumbs">
+        <Breadcrumbs items={breadcrumbs} />
+      </div>
+      <div class="blog-index-hero__intro mx-auto mt-6 max-w-3xl text-center">
+        <SectionHeader
+          eyebrow="Guides & reviews"
+          title="Sand Hacks guides: aimbot, ESP, setup, and extracts"
+          desc="Aimbot tuning, ESP and radar layouts, setup, and account-risk notes for PC players comparing SAND: Raiders of Sophie Hacks before checkout."
+          titleId="blog-index-title"
+          centered
+          headingLevel={1}
+        />
+        <div class="mt-6 flex justify-center">
+          <BlogShareBar title={seo.title} path="/blog/" />
+        </div>
+        <label class="blog-index-search mx-auto mt-8 flex w-full max-w-xl items-center gap-2 rounded-xl border border-border bg-background px-3 py-2.5 shadow-sm">
+          <Icon name="search" size={18} class="shrink-0 text-muted-foreground" aria-hidden="true" />
+          <span class="sr-only">Search articles</span>
+          <input
+            type="search"
+            class="w-full min-w-0 bg-transparent text-sm outline-none placeholder:text-muted-foreground"
+            placeholder="Search guides…"
+            data-blog-search
+            aria-label="Search blog articles"
+            autocomplete="off"
+          />
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-10 md:py-14" aria-labelledby="blog-list-heading">
+    <div class="mx-auto max-w-6xl px-5">
+      <h2 id="blog-list-heading" class="mb-2 text-center text-xl font-semibold normal-case">Latest Sand Hacks guides</h2>
+      <p class="mb-6 text-center text-sm text-muted-foreground">Posts cover aimbot tuning, loader setup, trampler ESP, and plan comparisons for SAND: Raiders of Sophie.</p>
+      <div class="blog-index-grid grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3" data-blog-grid id="blog-grid">
+        {posts.length === 0 && (
+          <p class="col-span-full rounded-xl border border-dashed border-border bg-muted/20 p-8 text-center text-muted-foreground">
+            Guides are syncing—refresh in a moment or run a production build locally.
+          </p>
+        )}
+        {posts.map((post, index) => (
+          <div class="blog-index-grid__item h-full min-h-0" data-blog-card data-search={searchBlob(post)}>
+            <BlogCard post={post} heroAltPrefix={index === 0 ? 'Blog – ' : undefined} />
+          </div>
+        ))}
+      </div>
+      <p
+        class="blog-index-empty mt-8 hidden rounded-xl border border-dashed border-border bg-muted/20 p-6 text-center text-sm text-muted-foreground"
+        data-blog-empty
+        role="status"
+      >
+        No articles match that search. Try aimbot, ESP, trampler, or setup.
+      </p>
+    </div>
+  </section>
+
+  <script>
+    import { initBlogSearch } from '../../scripts/blog-search.ts';
+    initBlogSearch();
+    document.addEventListener('astro:after-swap', initBlogSearch);
+  </script>
+</BaseLayout>

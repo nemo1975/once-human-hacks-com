@@ -1,0 +1,130 @@
+---
+import '../../styles/blog-pages.css';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import BlogShareBar from '../../components/BlogShareBar.astro';
+import ResponsiveImage from '../../components/ResponsiveImage.astro';
+import { resolveBlogHeroSource } from '../../utils/blogHeroImage';
+import { webpSrc } from '../../utils/responsiveImage';
+import { getCollection, render } from 'astro:content';
+import { blogPostPath, formatBlogDate, getAllBlogPosts, getRelatedBlogPosts, readingMinutes } from '../../lib/blog';
+import BlogCard from '../../components/BlogCard.astro';
+import { breadcrumbSchema, articleSchema, faqPageSchema } from '../../utils/schema';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const allPosts = await getAllBlogPosts();
+const related = getRelatedBlogPosts(post, allPosts, 3);
+const { Content } = await render(post);
+const heroSrc = resolveBlogHeroSource(post.data.heroImage);
+const heroOg = /\.(png|jpe?g|webp)$/i.test(heroSrc) ? webpSrc(heroSrc, 960) : heroSrc;
+const path = blogPostPath(post.id);
+const updated = post.data.updated ?? post.data.date;
+const readMin = readingMinutes(post.body);
+const faqItems = post.data.faq ?? [];
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Blog', path: '/blog/' },
+  { name: post.data.title, path },
+];
+
+const jsonLd = [
+  articleSchema({
+    name: post.data.title,
+    description: post.data.description,
+    url: path,
+    image: heroOg,
+    datePublished: post.data.date.toISOString(),
+    dateModified: updated.toISOString(),
+  }),
+  breadcrumbSchema(breadcrumbs),
+];
+
+if (faqItems.length) {
+  jsonLd.push(
+    faqPageSchema(
+      faqItems.map((item, i) => ({
+        num: String(i + 1).padStart(2, '0'),
+        q: item.q,
+        a: item.a,
+      })),
+    ),
+  );
+}
+---
+
+<BaseLayout
+  title={/sand hacks/i.test(post.data.title) ? post.data.title : `${post.data.title} | Sand Hacks`}
+  description={post.data.description}
+  ogImage={heroOg}
+  ogType="article"
+  articlePublishedTime={post.data.date.toISOString()}
+  articleModifiedTime={updated.toISOString()}
+  jsonLd={jsonLd}
+>
+  <article class="blog-article py-8 md:py-12">
+    <div class="mx-auto max-w-3xl px-5">
+      <Breadcrumbs items={breadcrumbs} />
+      <header class="mt-6 space-y-4">
+        <p class="text-xs font-semibold uppercase tracking-wide text-primary">{post.data.category}</p>
+        <h1 class="font-[family-name:var(--font-heading)] text-3xl font-bold leading-tight md:text-4xl">{post.data.title}</h1>
+        <p class="text-sm text-muted-foreground">
+          {formatBlogDate(post.data.date)}
+          {post.data.updated && <> · Updated {formatBlogDate(post.data.updated)}</>}
+          · {readMin} min read
+        </p>
+        <p class="text-lg leading-relaxed text-muted-foreground">{post.data.description}</p>
+        <BlogShareBar title={post.data.title} path={path} />
+      </header>
+
+      <div class="mt-8 overflow-hidden rounded-2xl border border-border">
+        <ResponsiveImage src={heroSrc} alt={post.data.title} width={960} height={540} class="aspect-video w-full object-cover" />
+      </div>
+
+      <div class="blog-prose mt-10 max-w-none">
+        <Content />
+      </div>
+
+      {
+        faqItems.length > 0 && (
+          <section class="mt-12 rounded-2xl border border-border bg-muted/20 p-6" aria-labelledby="post-faq-title">
+            <h2 id="post-faq-title" class="font-[family-name:var(--font-heading)] text-xl font-semibold">
+              Questions about this guide
+            </h2>
+            <dl class="mt-4 space-y-4">
+              {faqItems.map((item) => (
+                <div>
+                  <dt class="font-medium text-foreground">{item.q}</dt>
+                  <dd class="mt-1 text-sm leading-relaxed text-muted-foreground">{item.a}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+        )
+      }
+
+      {
+        related.length > 0 && (
+          <section class="mt-12 border-t border-border pt-10" aria-labelledby="related-posts-title">
+            <h2 id="related-posts-title" class="font-[family-name:var(--font-heading)] text-xl font-semibold">
+              Keep reading
+            </h2>
+            <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {related.map((entry) => (
+                <BlogCard post={entry} />
+              ))}
+            </div>
+          </section>
+        )
+      }
+
+      <div class="mt-8">
+        <BlogShareBar title={post.data.title} path={path} />
+      </div>
+    </div>
+  </article>
+</BaseLayout>

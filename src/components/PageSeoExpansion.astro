@@ -1,0 +1,132 @@
+---
+import type { SiteFaqItem } from '../data/faq';
+import type { ExpansionCta, ExpansionFaq, ExpansionSection, ExpansionTable } from '../data/pageExpansions.types';
+import FaqSection from './FaqSection.astro';
+import { Button } from '@/components/starwind/button';
+import Icon from './icons/Icon.astro';
+
+interface Props {
+  sections: ExpansionSection[];
+  table?: ExpansionTable;
+  faqs: ExpansionFaq[];
+  faqHeading?: string;
+  faqSubtitle?: string;
+  trustHeading?: string;
+  trustItems?: string[];
+  cta: ExpansionCta;
+  class?: string;
+}
+
+const {
+  sections,
+  table,
+  faqs,
+  faqHeading = 'Common questions',
+  faqSubtitle = 'Straight answers before you buy or open a ticket.',
+  trustHeading,
+  trustItems,
+  cta,
+  class: className,
+} = Astro.props;
+
+const faqItems: SiteFaqItem[] = faqs.map((item) => ({
+  id: item.id,
+  topic: 'setup',
+  icon: 'faqMore',
+  q: item.q,
+  a: item.a,
+}));
+---
+
+<section class:list={['border-t border-border bg-muted/10 py-14 md:py-20', className]}>
+  <div class="mx-auto max-w-3xl px-5">
+    <div class="space-y-10 text-left">
+      {
+        sections.map((block) => (
+          <div class="space-y-3">
+            <h2 class="font-[family-name:var(--font-heading)] text-2xl font-semibold normal-case text-foreground">
+              {block.heading}
+            </h2>
+            {block.subheading && (
+              <h3 class="text-lg font-medium normal-case text-foreground">{block.subheading}</h3>
+            )}
+            {block.paragraphs.map((paragraph) => (
+              <p class="text-base leading-relaxed text-muted-foreground">{paragraph}</p>
+            ))}
+          </div>
+        ))
+      }
+
+      {
+        table && (
+          <div class="space-y-3">
+            <h2 class="font-[family-name:var(--font-heading)] text-2xl font-semibold normal-case">{table.caption}</h2>
+            <div class="overflow-x-auto rounded-xl border border-border bg-card">
+              <table class="w-full min-w-[32rem] text-left text-sm">
+                <thead class="border-b border-border bg-muted/40">
+                  <tr>
+                    {table.headers.map((header) => (
+                      <th scope="col" class="px-4 py-3 font-semibold text-foreground">
+                        {header}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {table.rows.map((row) => (
+                    <tr class="border-b border-border/60 last:border-0">
+                      {row.map((cell) => (
+                        <td class="px-4 py-3 align-top text-muted-foreground">{cell}</td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )
+      }
+
+      {
+        trustHeading && trustItems && trustItems.length > 0 && (
+          <div class="space-y-3 rounded-2xl border border-dashed border-border bg-background p-6">
+            <h2 class="font-[family-name:var(--font-heading)] text-xl font-semibold normal-case">{trustHeading}</h2>
+            <ul class="list-disc space-y-2 pl-5 text-sm leading-relaxed text-muted-foreground">
+              {trustItems.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+    </div>
+  </div>
+
+  <FaqSection
+    items={faqItems}
+    eyebrow="FAQ"
+    title={faqHeading}
+    subtitle={faqSubtitle}
+    titleId="page-expansion-faq"
+    contentAlign="left"
+    class="border-t border-border bg-background pt-4"
+  />
+
+  <div class="mx-auto mt-12 max-w-3xl px-5 text-left">
+    <h2 class="font-[family-name:var(--font-heading)] text-2xl font-semibold normal-case">{cta.heading}</h2>
+    <p class="mt-3 text-base leading-relaxed text-muted-foreground">{cta.body}</p>
+    <div class="mt-6 flex flex-wrap gap-3">
+      <Button as="a" href={cta.primaryHref} variant="primary">
+        {cta.primaryLabel}
+        <Icon name="arrowRight" size={17} />
+      </Button>
+      {
+        cta.secondaryHref && cta.secondaryLabel && (
+          <Button as="a" href={cta.secondaryHref} variant="outline">
+            {cta.secondaryLabel}
+          </Button>
+        )
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,40 @@
+---
+import type { ProductPage } from '../../data/products';
+import { Badge } from '@/components/starwind/badge';
+
+interface Props {
+  product: ProductPage;
+}
+
+const { product } = Astro.props;
+
+const pageH1 =
+  product.slug === 'complete'
+    ? 'Complete Sand Hacks suite: aimbot, ESP, trampler, and radar'
+    : product.slug === 'aimbot'
+      ? 'SAND: Raiders of Sophie aimbot'
+      : product.slug === 'esp-radar'
+        ? 'Sand Raiders Hacks: player ESP, trampler ESP, and radar'
+        : product.slug === 'cloud-dma'
+          ? 'Cloud DMA for Sand Hacks: single-PC Hyper-V layer'
+          : product.slug === 'hwid-spoofer'
+            ? 'HWID Spoofer with cleaner for SAND: Raiders of Sophie'
+            : product.slug === 'skin-changer'
+              ? 'Skin changer for weapon skins and in-game cosmetics'
+              : product.title;
+
+const contextBadge = product.kind === 'tier' ? 'SAND: Raiders of Sophie' : 'Utility';
+---
+
+<header class="product-detail-header space-y-4">
+  <div class="flex flex-wrap items-center gap-2">
+    <Badge variant="secondary">{product.badge}</Badge>
+    {product.variant === 'popular' && <Badge>Popular</Badge>}
+    {product.variant === 'limited' && <Badge variant="primary">Limited</Badge>}
+    <Badge variant="outline">{contextBadge}</Badge>
+    <Badge variant="outline">Windows PC</Badge>
+  </div>
+  <h1 class="max-w-3xl text-3xl font-bold normal-case leading-tight md:text-4xl">{pageH1}</h1>
+  <p class="text-xl font-semibold text-primary">{product.title}</p>
+  <p class="max-w-2xl text-lg leading-relaxed text-muted-foreground">{product.subtitle || product.desc}</p>
+</header>
