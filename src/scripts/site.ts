@@ -101,6 +101,38 @@ function initThemeMetaColor() {
   observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 }
 
+function initMobileNav() {
+  const bar = document.querySelector<HTMLElement>('[data-nav-bar]');
+  const toggle = document.querySelector<HTMLButtonElement>('[data-nav-toggle]');
+  if (!bar || !toggle) return;
+
+  const openIcon = toggle.querySelector<HTMLElement>('[data-nav-icon-open]');
+  const closeIcon = toggle.querySelector<HTMLElement>('[data-nav-icon-close]');
+  const openLabel = toggle.getAttribute('aria-label') ?? 'Open menu';
+  const closeLabel = 'Close menu';
+
+  const setOpen = (open: boolean) => {
+    if (open) bar.setAttribute('data-nav-open', '');
+    else bar.removeAttribute('data-nav-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? closeLabel : openLabel);
+    openIcon?.classList.toggle('hidden', open);
+    closeIcon?.classList.toggle('hidden', !open);
+  };
+
+  toggle.addEventListener('click', () => {
+    setOpen(!bar.hasAttribute('data-nav-open'));
+  });
+
+  bar.querySelectorAll<HTMLAnchorElement>('#primary-nav a').forEach((link) => {
+    link.addEventListener('click', () => setOpen(false));
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') setOpen(false);
+  });
+}
+
 function bootSite() {
   initFonts();
   initFaqFilters();
@@ -108,6 +140,7 @@ function bootSite() {
   initInPageScroll();
   initSkipLink();
   initThemeMetaColor();
+  initMobileNav();
 }
 
 if (document.readyState === 'loading') {

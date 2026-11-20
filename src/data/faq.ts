@@ -84,7 +84,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'products',
     icon: 'faqProductsPage',
     q: 'Where are Sand Hacks plans listed?',
-    a: `${productsIndex('Sand Hacks product hub')} lists the ${completeTier('Complete suite')} plus Cloud DMA, HWID Spoofer, and Skin Changer utilities with module breakdowns and checkout links.`,
+    a: `${link('Sand Hacks product hub', `${ROUTES.products}#utilities`)} lists the ${link('Complete suite', `${productPath('complete')}#product-experience`)} plus Cloud DMA, HWID Spoofer, and Skin Changer utilities with module breakdowns and checkout links.`,
   },
   {
     id: 'what-is-esp',

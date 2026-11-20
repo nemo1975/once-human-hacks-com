@@ -14,7 +14,6 @@ export const en: Translations = {
     discord: DISCORD_URL,
   },
   nav: [
-    { href: '/', label: 'Home', mobileLabel: 'Return to homepage' },
     { href: `${productBase}`, label: 'Products', mobileLabel: 'View products' },
     { href: '/blog/', label: 'Guides', mobileLabel: 'Read setup guides' },
     { href: '/forum/', label: 'Discussions', mobileLabel: 'Join player discussions' },
@@ -151,14 +150,20 @@ export const en: Translations = {
       {
         title: 'Discord and email support',
         desc: 'Real people help with loader setup, license moves, and checkout questions. Coverage is listed as 24/7 on Discord; patch-day queues can still add delay.',
+        descAlt:
+          'Loader, HWID, and checkout questions go to Discord or email. Coverage is listed 24/7; SAND patch days can still stack the queue.',
       },
       {
         title: 'Portal delivery',
         desc: 'Keys and loader downloads come from the operator portal after merchant checkout. Do not grab files from random DMs.',
+        descAlt:
+          'After you pay, the operator portal is the only listed place for the key and loader. Skip unofficial Discord file drops.',
       },
       {
         title: 'Config save and load',
         desc: 'Save city, dune, and trampler-focused presets and load them on another PC through the listed config system.',
+        descAlt:
+          'Keep Sophie city, dune, and trampler layouts, then restore them on a second Windows PC from the listed config tools.',
       },
       {
         title: 'License moves',
@@ -262,7 +267,7 @@ export const en: Translations = {
     hacksTitle: 'Main hacks',
     hacksSubtitle:
       'One Sand Hacks suite for SAND: Raiders of Sophie: aimbot, player ESP, trampler ESP, item ESP, radar, and object ESP on a single key.',
-    utilitiesTitle: 'Utilities',
+    utilitiesTitle: 'Addon utilities',
     utilitiesSubtitle:
       'Cloud DMA, HWID Spoofer, and Skin Changer. Features follow the merchant listings. Cloud DMA is listed as required for full spoofer and skin-changer functionality.',
     viewAll: 'View all plans',
@@ -285,7 +290,7 @@ export const en: Translations = {
     eyebrow: 'Community',
     title: 'Sand Hacks forum',
     subtitle: 'Loader setup, aimbot FOV, trampler ESP, radar range, and patch-day notes from players running Sand Hacks on Windows PC.',
-    viewAll: 'Browse forums',
+    viewAll: 'Browse forum communities',
   },
   reviews: {
     totalLabel: 'Community reviews',
@@ -473,13 +478,13 @@ export const en: Translations = {
     tagline: 'Sand Hacks for SAND: Raiders of Sophie: aimbot, ESP, trampler tracking, and radar.',
     explore: 'Explore',
     exploreLinks: [
-      { href: '/', label: 'Feature overview', ariaLabel: 'Features', scrollTarget: 'features' },
-      { href: `${productBase}complete/`, label: 'Complete suite', ariaLabel: 'Complete plan' },
-      { href: `${productBase}`, label: 'All products', ariaLabel: 'Products' },
-      { href: '/blog/', label: 'Sand Hacks guides', ariaLabel: 'Blog' },
-      { href: '/forum/', label: 'Community forums', ariaLabel: 'Forums' },
-      { href: '/reviews/', label: 'Reviews', ariaLabel: 'Reviews' },
-      { href: '/faq/', label: 'Pre-purchase FAQ', ariaLabel: 'FAQ' },
+      { href: '/#features', label: 'Feature overview', ariaLabel: 'Feature modules' },
+      { href: `${productBase}complete/#product-features`, label: 'Complete suite', ariaLabel: 'Complete plan modules' },
+      { href: `${productBase}#hacks`, label: 'All products', ariaLabel: 'Product hub hacks' },
+      { href: '/blog/#blog-list-heading', label: 'Sand Hacks guides', ariaLabel: 'Blog index' },
+      { href: '/#forum', label: 'Community forums', ariaLabel: 'Homepage forum' },
+      { href: '/reviews/#reviews-list-title', label: 'Player reviews', ariaLabel: 'Reviews list' },
+      { href: '/#faq', label: 'Pre-purchase FAQ', ariaLabel: 'Homepage FAQ' },
     ],
     support: 'Support',
     legal: 'Legal',

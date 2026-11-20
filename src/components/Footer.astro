@@ -9,8 +9,7 @@ interface Props {
 const { logoAlt = 'Sand Hacks logo' } = Astro.props;
 
 const resourceLinks = [
-  { href: '/forum/', label: 'Community forum', ariaLabel: 'Forum' },
-  { href: '/support/', label: t.footer.support, ariaLabel: 'Support' },
+  { href: '/support/', label: t.footer.support, ariaLabel: 'Contact support' },
 ];
 
 const legalLinks = [
@@ -24,10 +23,10 @@ const legalLinks = [
   <div class="mx-auto max-w-6xl px-5">
     <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
       <div class="space-y-4">
-        <a href="/" class="inline-flex items-center gap-2.5 font-[family-name:var(--font-heading)] text-lg font-bold" aria-label={t.ui.homeAria}>
+        <div class="inline-flex items-center gap-2.5 font-[family-name:var(--font-heading)] text-lg font-bold">
           <img src="/logo.svg" alt={logoAlt} width="32" height="32" class="rounded-md" />
-          <span aria-hidden="true">Sand <span class="text-primary">Hacks</span></span>
-        </a>
+          <span>Sand <span class="text-primary">Hacks</span></span>
+        </div>
         <p class="text-sm text-muted-foreground">{t.footer.tagline}</p>
       </div>
 

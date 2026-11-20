@@ -4,7 +4,6 @@ import { getFeaturedForumPosts } from '../data/forum';
 import SectionHeader from './SectionHeader.astro';
 import ForumCard from './ForumCard.astro';
 import Icon from './icons/Icon.astro';
-import { ROUTES } from '../utils/path';
 import SiteFaqSection from './SiteFaqSection.astro';
 import { getLandingFaqs } from '../data/faq';
 import { Button } from '@/components/starwind/button';
@@ -25,7 +24,7 @@ const forumHome = t.forumHome;
     </div>
 
     <div class="mt-10 flex justify-start lg:justify-center">
-      <Button as="a" href={ROUTES.forum} variant="outline">
+      <Button as="a" href="/forum/#communities" variant="outline">
         {forumHome.viewAll}
         <Icon name="arrowRight" size={17} />
       </Button>
