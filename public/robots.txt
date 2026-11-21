@@ -3,4 +3,4 @@ Allow: /
 
 Disallow: /go/
 
-Sitemap: https://sandhacks.com/sitemap.xml
+Sitemap: https://oncehumanhacks.com/sitemap.xml

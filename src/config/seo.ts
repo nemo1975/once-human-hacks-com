@@ -4,11 +4,11 @@ import { getPageSeoEntry } from './pageSeo';
 
 export const SITE_ORIGIN = `https://${t.site.domain}`;
 
-export const DEFAULT_OG_IMAGE = '/logo.svg';
+export const DEFAULT_OG_IMAGE = '/og.png';
 
 export const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID as string | undefined;
 
-/** @example @sandhacks */
+/** @example @oncehumanhacks */
 export const TWITTER_SITE = import.meta.env.PUBLIC_TWITTER_SITE as string | undefined;
 
 export const TWITTER_CREATOR = import.meta.env.PUBLIC_TWITTER_CREATOR as string | undefined;
@@ -55,11 +55,11 @@ export function pageTitle(keyword: string, brand = t.site.name): string {
   return `${trimmed || sliced.trim()}${suffix}`;
 }
 
-/** Keep meta descriptions tied to Sand Hacks / SAND: Raiders of Sophie. */
+/** Keep meta descriptions tied to Once Human Hacks. */
 export function cheatMetaDescription(text: string): string {
   const trimmed = text.trim();
-  if (/sand hacks|raiders of sophie/i.test(trimmed)) return trimmed;
-  return `Sand Hacks: ${trimmed}`;
+  if (/once human hacks|once human cheat/i.test(trimmed)) return trimmed;
+  return `Once Human Hacks: ${trimmed}`;
 }
 
 export const DEFAULT_OG_IMAGE_WIDTH = 1200;

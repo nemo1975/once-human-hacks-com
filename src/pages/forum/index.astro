@@ -14,7 +14,7 @@ const breadcrumbs = [{ name: 'Homepage', path: '/' }, { name: 'Forum home', path
 const categoryKey = (name: string) => name.toLowerCase().replace(/[^a-z0-9]/g, '');
 ---
 
-<BaseLayout title={seo.title} description={seo.description} logoAlt="Forum – Sand Hacks community logo" jsonLd={[
+<BaseLayout title={seo.title} description={seo.description} logoAlt="Forum – Once Human Hacks community logo" jsonLd={[
   collectionPageSchema({ name: `${t.site.name} Forum`, description: seo.description, url: '/forum/' }),
   breadcrumbSchema(breadcrumbs),
 ]}>
@@ -23,11 +23,11 @@ const categoryKey = (name: string) => name.toLowerCase().replace(/[^a-z0-9]/g, '
       <Breadcrumbs items={breadcrumbs} />
       <header class="forum-hero">
         <div>
-          <p class="section-header__eyebrow">Sand Hacks community</p>
-          <h1>Sand Hacks forum: aimbot, ESP, tramplers, and patch talk</h1>
-          <p class="forum-hero__copy">This forum is for loader setup, aimbot tuning, trampler ESP, radar range, and honest patch-day talk from SAND: Raiders of Sophie players on PC.</p>
+          <p class="section-header__eyebrow">Once Human Hacks community</p>
+          <h1>Once Human Hacks forum: aimbot, ESP, creatures, and patch talk</h1>
+          <p class="forum-hero__copy">This forum is for loader setup, aimbot tuning, creature ESP, radar range, and honest patch-day talk from Once Human players on PC.</p>
         </div>
-        <a class="forum-create" href="/products/sand-hacks/"><Icon name="navProducts" size={17} /> Compare hacks plans</a>
+        <a class="forum-create" href="/products/once-human-hacks/"><Icon name="navProducts" size={17} /> Compare hacks plans</a>
       </header>
 
       <div class="mt-4 flex justify-end">
@@ -96,8 +96,8 @@ const categoryKey = (name: string) => name.toLowerCase().replace(/[^a-z0-9]/g, '
           <section class="forum-side-card forum-about" id="community-guidelines">
             <div class="forum-side-card__banner"></div>
             <div class="forum-about__content">
-              <div class="forum-about__title"><span class="forum-community-avatar forum-community-avatar--brand"><img src="/logo.svg" alt="Forum – Sand Hacks community logo" width="34" height="34" /></span><h2>Forum: SAND PC players</h2></div>
-              <p>Swap aimbot presets, ESP color ideas, trampler radar range, and loader tips before you extract on Sophie.</p>
+              <div class="forum-about__title"><span class="forum-community-avatar forum-community-avatar--brand"><img src="/logo.svg" alt="Forum – Once Human Hacks community logo" width="34" height="34" /></span><h2>Forum: Once Human PC players</h2></div>
+              <p>Swap aimbot presets, ESP color ideas, creature radar range, and loader tips before you queue.</p>
               <div class="forum-stats"><span><b>{forumPosts.length}</b> threads</span><span><b>{forumCategories.length}</b> topics</span></div>
               <a class="forum-join" href="/faq/">Read the FAQ</a>
             </div>

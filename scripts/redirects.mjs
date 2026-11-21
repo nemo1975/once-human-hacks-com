@@ -1,6 +1,6 @@
 /** Static path redirects (301). Keys are pathname without query/hash. */
-const SAND_HUB = '/products/sand-hacks/';
-const SAND_COMPLETE = '/products/sand-hacks/complete/';
+const HUB = '/products/once-human-hacks/';
+const COMPLETE = '/products/once-human-hacks/complete/';
 
 export const PATH_REDIRECTS = new Map([
   ['/blog', '/blog/'],
@@ -11,26 +11,28 @@ export const PATH_REDIRECTS = new Map([
   ['/privacy', '/privacy/'],
   ['/terms', '/terms/'],
   ['/faq', '/faq/'],
-  ['/cheats', SAND_HUB],
-  ['/cheats/', SAND_HUB],
-  ['/cheats/lite', SAND_HUB],
-  ['/cheats/lite/', SAND_HUB],
-  ['/cheats/pro', SAND_HUB],
-  ['/cheats/pro/', SAND_HUB],
-  ['/cheats/elite', SAND_COMPLETE],
-  ['/cheats/elite/', SAND_COMPLETE],
+  ['/cheats', HUB],
+  ['/cheats/', HUB],
+  ['/cheats/lite', HUB],
+  ['/cheats/lite/', HUB],
+  ['/cheats/pro', HUB],
+  ['/cheats/pro/', HUB],
+  ['/cheats/elite', COMPLETE],
+  ['/cheats/elite/', COMPLETE],
   ['/cheats/compare', '/forum/'],
   ['/cheats/compare/', '/forum/'],
-  ['/products/csgo-cheats', SAND_HUB],
-  ['/products/csgo-cheats/', SAND_HUB],
-  ['/products/fortnite-cheats', SAND_HUB],
-  ['/products/fortnite-cheats/', SAND_HUB],
-  ['/products/dota-2-cheats', SAND_HUB],
-  ['/products/dota-2-cheats/', SAND_HUB],
-  ['/products/battlefield-6-cheats', SAND_HUB],
-  ['/products/battlefield-6-cheats/', SAND_HUB],
-  ['/products/cs2-cheats', SAND_HUB],
-  ['/products/cs2-cheats/', SAND_HUB],
+  ['/products/sand-hacks', HUB],
+  ['/products/sand-hacks/', HUB],
+  ['/products/csgo-cheats', HUB],
+  ['/products/csgo-cheats/', HUB],
+  ['/products/fortnite-cheats', HUB],
+  ['/products/fortnite-cheats/', HUB],
+  ['/products/dota-2-cheats', HUB],
+  ['/products/dota-2-cheats/', HUB],
+  ['/products/battlefield-6-cheats', HUB],
+  ['/products/battlefield-6-cheats/', HUB],
+  ['/products/cs2-cheats', HUB],
+  ['/products/cs2-cheats/', HUB],
 ]);
 
 /** Paths that should not receive a forced trailing slash. */

@@ -10,20 +10,20 @@ const { product } = Astro.props;
 
 const pageH1 =
   product.slug === 'complete'
-    ? 'Complete Sand Hacks suite: aimbot, ESP, trampler, and radar'
+    ? 'Complete Once Human Hacks suite: aimbot, ESP, creature, and radar'
     : product.slug === 'aimbot'
-      ? 'SAND: Raiders of Sophie aimbot'
+      ? 'Once Human aimbot'
       : product.slug === 'esp-radar'
-        ? 'Sand Raiders Hacks: player ESP, trampler ESP, and radar'
+        ? 'Once Human ESP: player ESP, creature ESP, and radar'
         : product.slug === 'cloud-dma'
-          ? 'Cloud DMA for Sand Hacks: single-PC Hyper-V layer'
+          ? 'Cloud DMA for Once Human Hacks: single-PC Hyper-V layer'
           : product.slug === 'hwid-spoofer'
-            ? 'HWID Spoofer with cleaner for SAND: Raiders of Sophie'
+            ? 'HWID Spoofer with cleaner for Once Human'
             : product.slug === 'skin-changer'
               ? 'Skin changer for weapon skins and in-game cosmetics'
               : product.title;
 
-const contextBadge = product.kind === 'tier' ? 'SAND: Raiders of Sophie' : 'Utility';
+const contextBadge = product.kind === 'tier' ? 'Once Human' : 'Utility';
 ---
 
 <header class="product-detail-header space-y-4">

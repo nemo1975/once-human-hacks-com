@@ -1,9 +1,9 @@
 {
-  "name": "sandhacks-com",
+  "name": "oncehumanhacks-com",
   "type": "module",
   "version": "0.0.1",
   "private": true,
-  "homepage": "https://sandhacks.com",
+  "homepage": "https://oncehumanhacks.com",
   "engines": {
     "node": ">=22.23.4"
   },

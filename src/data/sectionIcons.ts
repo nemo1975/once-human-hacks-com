@@ -57,7 +57,7 @@ export const heroStatusPills: { icon: IconName; label: string }[] = [
   { icon: 'support247', label: '24/7 Support' },
   { icon: 'instantDelivery', label: 'Instant key' },
   { icon: 'settings', label: 'Config saves' },
-  { icon: 'triggerBot', label: 'Trampler radar' },
+  { icon: 'triggerBot', label: 'Creature radar' },
   { icon: 'boneSelect', label: 'Bone Select' },
   { icon: 'liveStatus', label: 'Live Status' },
   { icon: 'autoUpdates', label: 'Auto Updates' },

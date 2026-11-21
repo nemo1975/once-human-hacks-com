@@ -5,7 +5,7 @@ import { resolveDistDir } from './dist-dir.mjs';
 
 const root = process.cwd();
 const dist = resolveDistDir();
-const SITE = 'https://sandhacks.com';
+const SITE = 'https://oncehumanhacks.com';
 
 const findings = [];
 
@@ -197,7 +197,7 @@ try {
       'critical',
       'Deploy',
       'Gameplay image files are untracked in git',
-      'Add SAND media later; placeholder.svg is the current hero asset.',
+      'Add Once Human media later; placeholder.svg is the current hero asset.',
     );
   }
 } catch {

@@ -1,15 +1,15 @@
-# Search Console workflow (sandhacks.com)
+# Search Console workflow (oncehumanhacks.com)
 
 You verify the domain at your DNS provider. No HTML meta tags in the repo.
 
 ## Setup (once)
 
-1. Open [Google Search Console](https://search.google.com/search-console) and add the **domain** property for `sandhacks.com` if it is not already there.
+1. Open [Google Search Console](https://search.google.com/search-console) and add the **domain** property for `oncehumanhacks.com` if it is not already there.
 2. Under **Sitemaps**, submit the index first:
-   - `https://sandhacks.com/sitemap.xml`
+   - `https://oncehumanhacks.com/sitemap.xml`
 3. Optional child sitemaps:
-   - `https://sandhacks.com/sitemap-pages.xml`
-   - `https://sandhacks.com/sitemap-0.xml` (or whatever Astro emits after build)
+   - `https://oncehumanhacks.com/sitemap-pages.xml`
+   - `https://oncehumanhacks.com/sitemap-0.xml` (or whatever Astro emits after build)
 4. Repeat in [Bing Webmaster Tools](https://www.bing.com/webmasters) if you use Bing.
 
 This file is a checklist. Pages are not submitted until you complete the steps in Search Console.
@@ -26,11 +26,11 @@ This file is a checklist. Pages are not submitted until you complete the steps i
 
 | Common query intent | Edit path in `pageSeo.ts` |
 | ------------------- | ------------------------- |
-| Sand Hacks | `/` |
-| Sand Hacks Download | `/products/sand-hacks/` |
-| Sand Hacks Features | `/products/sand-hacks/complete/` |
-| Cloud DMA | `/products/sand-hacks/cloud-dma/` |
-| HWID Spoofer | `/products/sand-hacks/hwid-spoofer/` |
-| Skin Changer | `/products/sand-hacks/skin-changer/` |
-| Sand Guides | `/blog/` |
-| Sand Hacks FAQ | `/faq/` |
+| Once Human Hacks | `/` |
+| Once Human Cheats | `/products/once-human-hacks/` |
+| Once Human Hacks for PC | `/products/once-human-hacks/complete/` |
+| Cloud DMA | `/products/once-human-hacks/cloud-dma/` |
+| HWID Spoofer | `/products/once-human-hacks/hwid-spoofer/` |
+| Skin Changer | `/products/once-human-hacks/skin-changer/` |
+| Once Human guides | `/blog/` |
+| Once Human Cheat FAQ | `/faq/` |

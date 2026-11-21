@@ -1,6 +1,6 @@
 # Static Astro site — custom worker for preview-host noindex; assets served from dist/.
-# Production domain: https://sandhacks.com
-name = "sandhacks-com"
+# Production domain: https://oncehumanhacks.com
+name = "oncehumanhacks-com"
 main = "worker.mjs"
 compatibility_date = "2025-10-11"
 
@@ -14,5 +14,5 @@ binding = "ASSETS"
 not_found_handling = "404-page"
 html_handling = "auto-trailing-slash"
 
-# Custom domains for sandhacks.com must be added in the dashboard (zone must be on this account).
+# Custom domains for oncehumanhacks.com must be added in the dashboard (zone must be on this account).
 workers_dev = true

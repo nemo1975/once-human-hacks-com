@@ -3,7 +3,7 @@ import path from 'node:path';
 import { resolveDistDir } from './dist-dir.mjs';
 
 const dist = resolveDistDir();
-const siteOrigin = 'https://sandhacks.com';
+const siteOrigin = 'https://oncehumanhacks.com';
 
 function walkHtml(dir, acc = []) {
   if (!fs.existsSync(dir)) return acc;

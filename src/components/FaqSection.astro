@@ -29,7 +29,7 @@ interface Props {
 const {
   items,
   eyebrow = 'FAQ',
-  title = 'Sand Hacks FAQ',
+  title = 'Once Human Cheat FAQ',
   subtitle = 'Compatibility, bans, and license access. Straight answers before you buy.',
   titleId = 'faq-heading',
   showFilters = false,
@@ -64,7 +64,7 @@ const filters = filterTopics ?? (['all', 'plans', 'esp', 'scripts', 'safety', 'p
     <div class:list={[contentAlign === 'center' && 'mx-auto max-w-3xl', contentAlign === 'left' && 'product-detail__narrow max-w-3xl']}>
     {
       hideHeader && showFilters && (
-        <h2 class="mb-4 text-left text-xl font-semibold normal-case">FAQ: browse by topic</h2>
+        <h2 class="mb-4 text-left text-xl font-semibold normal-case">Browse questions by topic</h2>
       )
     }
 

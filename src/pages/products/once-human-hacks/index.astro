@@ -16,7 +16,7 @@ import PageSeoExpansion from '../../../components/PageSeoExpansion.astro';
 import { productHubExpansion, expansionFaqsToSchema } from '../../../data/pageExpansions';
 import { faqPageSchema } from '../../../utils/schema';
 
-const seo = resolvePageSeo('/products/sand-hacks/');
+const seo = resolvePageSeo('/products/once-human-hacks/');
 const hubFaqs = expansionFaqsToSchema(productHubExpansion.faqs);
 const breadcrumbs = [
   { name: 'Homepage', path: '/' },
@@ -27,7 +27,7 @@ const breadcrumbs = [
 <BaseLayout
   title={seo.title}
   description={seo.description}
-  logoAlt="SAND: Raiders of Sophie Hacks – Sand Hacks logo"
+  logoAlt="Once Human Cheats – Once Human Hacks logo"
   jsonLd={[
     collectionPageSchema({
       name: productHub.title,
@@ -49,9 +49,9 @@ const breadcrumbs = [
       <Breadcrumbs items={breadcrumbs} />
 
       <div class="mt-6 max-w-3xl space-y-3">
-        <h1 class="text-3xl font-bold normal-case md:text-4xl">SAND: Raiders of Sophie Hacks</h1>
+        <h1 class="text-3xl font-bold normal-case md:text-4xl">Once Human Cheats</h1>
         <p class="text-lg text-muted-foreground">
-          Sand Hacks for SAND: Raiders of Sophie on Windows PC. The main product is the Complete suite. Utilities—Cloud DMA, HWID Spoofer, and Skin Changer—sit in the row below.
+          Once Human Cheats for Windows PC. The main product is the Complete suite. Utilities (Cloud DMA, HWID Spoofer, and Skin Changer) sit in the row below.
         </p>
         <BlogShareBar title={seo.title} path={productHub.path} />
       </div>
@@ -76,7 +76,7 @@ const breadcrumbs = [
         Product features
       </h2>
       <p class="mt-2 max-w-2xl text-sm text-muted-foreground">
-        Aimbot, player ESP, trampler ESP, item ESP, radar, and object ESP are listed on the Complete page. Cloud DMA, HWID Spoofer, and Skin Changer follow their merchant listings. Open a card for the full group list. We do not display prices on this site.
+        Aimbot, player ESP, creature ESP, item ESP, radar, and object ESP are listed on the Complete page. Cloud DMA, HWID Spoofer, and Skin Changer follow their merchant listings. Open a card for the full group list. We do not display prices on this site.
       </p>
       <Button as="a" href={PRIMARY_CHECKOUT_PATH} rel="noopener noreferrer sponsored" variant="primary" size="lg" class="mt-6 rounded-xl">
         Continue to checkout

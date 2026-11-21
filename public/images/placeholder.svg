@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="Image placeholder">
-  <rect width="960" height="540" fill="#101410"/>
-  <rect x="1" y="1" width="958" height="538" fill="none" stroke="#2a3328" stroke-width="2"/>
-  <rect x="80" y="70" width="800" height="400" rx="12" fill="#161b16" stroke="#3d4a34" stroke-width="1"/>
-  <circle cx="480" cy="240" r="42" fill="none" stroke="#7a9a4a" stroke-width="3"/>
-  <path d="M480 218v44M458 240h44" stroke="#d4923a" stroke-width="3" stroke-linecap="round"/>
-  <text x="480" y="330" text-anchor="middle" fill="#9aa394" font-family="Outfit, ui-sans-serif, system-ui, sans-serif" font-size="22">Media coming soon</text>
+  <rect width="960" height="540" fill="#0b0b0b"/>
+  <rect x="1" y="1" width="958" height="538" fill="none" stroke="#2a221c" stroke-width="2"/>
+  <rect x="80" y="70" width="800" height="400" rx="12" fill="#141210" stroke="#3a2a24" stroke-width="1"/>
+  <circle cx="480" cy="240" r="42" fill="none" stroke="#c45a3a" stroke-width="3"/>
+  <path d="M480 218v44M458 240h44" stroke="#e07050" stroke-width="3" stroke-linecap="round"/>
+  <text x="480" y="330" text-anchor="middle" fill="#a39a92" font-family="Outfit, ui-sans-serif, system-ui, sans-serif" font-size="22">Media coming soon</text>
 </svg>

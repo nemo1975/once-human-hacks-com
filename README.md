@@ -1,6 +1,6 @@
-# Sand Hacks — sandhacks.com
+# Once Human Hacks — oncehumanhacks.com
 
-SAND: Raiders of Sophie hacks site. Astro static build with optional Cloudflare Worker.
+Once Human hacks site. Astro static build with optional Cloudflare Worker.
 
 ## Local development
 
@@ -23,7 +23,7 @@ Build output: `dist/`.
 
 ## Notes
 
-- Domain: `https://sandhacks.com`
-- Product hub: `/products/sand-hacks/`
-- Gameplay screenshots and OG images are placeholders until you add SAND media.
-- Merchant checkout uses the existing affiliate tracker. Confirm the SAND catalog path before launch.
+- Domain: `https://oncehumanhacks.com`
+- Product hub: `/products/once-human-hacks/`
+- Gameplay and blog images use the Once Human overlay captures in `scripts/assets/gameplay/`.
+- Merchant checkout uses the existing affiliate tracker. Confirm the Once Human catalog path before launch.

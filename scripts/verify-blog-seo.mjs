@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { resolveDistDir } from './dist-dir.mjs';
 
-const SITE = 'https://sandhacks.com';
+const SITE = 'https://oncehumanhacks.com';
 const dist = resolveDistDir();
 
 /** @param {string} html */

@@ -44,7 +44,7 @@ for (const type of pageTypes) {
   for (const file of files) {
     const html = fs.readFileSync(file, 'utf8');
     const rel = path.relative(dist, file).replace(/\\/g, '/');
-    const anchors = anchorTexts(html).filter((a) => a.href.startsWith('/') || a.href.includes('sandhacks.com'));
+    const anchors = anchorTexts(html).filter((a) => a.href.startsWith('/') || a.href.includes('oncehumanhacks.com'));
     const byText = new Map();
     for (const a of anchors) {
       if (!a.text || a.text.length < 3) continue;

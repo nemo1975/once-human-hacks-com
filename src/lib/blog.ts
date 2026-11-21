@@ -4,18 +4,18 @@ export type BlogEntry = CollectionEntry<'blog'>;
 
 /** Newest first, then prompt list order when dates match. */
 export const BLOG_LIST_ORDER = [
-  'best-sand-hacks',
-  'sand-aimbot-settings',
-  'sand-hacks-plans',
-  'sand-esp-and-radar',
-  'sand-hacks-setup-guide',
-  'sand-hacks-account-risk',
-  'how-to-choose-sand-hacks',
-  'sand-hacks-config-presets',
-  'sand-hwid-reset',
-  'sand-hacks-troubleshooting',
-  'sand-extracts-and-tramplers',
-  'sand-free-vs-paid-hacks',
+  'best-once-human-hacks',
+  'once-human-aimbot-settings',
+  'once-human-hacks-plans',
+  'once-human-esp-and-radar',
+  'once-human-hacks-setup-guide',
+  'once-human-hacks-account-risk',
+  'how-to-choose-once-human-hacks',
+  'once-human-hacks-config-presets',
+  'once-human-hwid-reset',
+  'once-human-hacks-troubleshooting',
+  'once-human-pvp-and-pve',
+  'once-human-free-vs-paid-hacks',
 ] as const;
 
 export const BLOG_PAGE_SIZE = 12;
@@ -41,18 +41,18 @@ export function paginateBlogPosts(posts: BlogEntry[], page: number): BlogEntry[]
 }
 
 const BLOG_READ_LABELS: Record<string, string> = {
-  'best-sand-hacks': 'Read buyer guide',
-  'sand-aimbot-settings': 'Read settings guide',
-  'sand-hacks-plans': 'Read plan comparison',
-  'sand-esp-and-radar': 'Read ESP & radar guide',
-  'sand-hacks-setup-guide': 'Read setup guide',
-  'sand-hacks-account-risk': 'Read account risk guide',
-  'how-to-choose-sand-hacks': 'Read provider checklist',
-  'sand-hacks-config-presets': 'Read preset guide',
-  'sand-hwid-reset': 'Read HWID guide',
-  'sand-hacks-troubleshooting': 'Read troubleshooting FAQ',
-  'sand-extracts-and-tramplers': 'Read extract guide',
-  'sand-free-vs-paid-hacks': 'Read free vs paid guide',
+  'best-once-human-hacks': 'Read buyer guide',
+  'once-human-aimbot-settings': 'Read settings guide',
+  'once-human-hacks-plans': 'Read plan comparison',
+  'once-human-esp-and-radar': 'Read ESP & radar guide',
+  'once-human-hacks-setup-guide': 'Read setup guide',
+  'once-human-hacks-account-risk': 'Read account risk guide',
+  'how-to-choose-once-human-hacks': 'Read provider checklist',
+  'once-human-hacks-config-presets': 'Read preset guide',
+  'once-human-hwid-reset': 'Read HWID guide',
+  'once-human-hacks-troubleshooting': 'Read troubleshooting FAQ',
+  'once-human-pvp-and-pve': 'Read PvP and PvE guide',
+  'once-human-free-vs-paid-hacks': 'Read free vs paid guide',
 };
 
 /** Unique card CTA per post (not "read more"). */

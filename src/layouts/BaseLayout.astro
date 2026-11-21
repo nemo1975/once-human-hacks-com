@@ -33,7 +33,7 @@ const {
   description = t.site.description,
   ogImage = DEFAULT_OG_IMAGE,
   ogImageAlt = title,
-  logoAlt = 'Sand Hacks logo',
+  logoAlt = 'Once Human Hacks logo',
   ogType = 'website',
   articlePublishedTime,
   articleModifiedTime,
@@ -82,16 +82,16 @@ const robotsContent = noindex || previewHost
     <meta name="author" content={t.site.name} />
     <meta name="robots" content={robotsContent} />
     <meta name="googlebot" content={robotsContent} />
-    <meta name="theme-color" content="#0C0B09" />
+    <meta name="theme-color" content="#0B0B0B" />
     <link rel="canonical" href={canonicalURL} />
     <link rel="alternate" hreflang="en" href={canonicalURL} />
     <link rel="alternate" hreflang="x-default" href={canonicalURL} />
     <link rel="sitemap" type="text/xml" title="Sitemap" href="/sitemap.xml" />
     <link rel="manifest" href="/site.webmanifest" />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" href="/favicon.ico?v=3" sizes="any" />
+    <link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png?v=3" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
 
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />

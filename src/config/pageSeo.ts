@@ -5,74 +5,74 @@ export interface PageSeoEntry {
 
 export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/': {
-    title: 'Sand Hacks | SAND: Raiders of Sophie',
+    title: 'Once Human Hacks for PC | Aimbot, ESP & Radar',
     description:
-      'Sand Hacks covers SAND: Raiders of Sophie on Windows PC. Compare aimbot, player ESP, trampler ESP, and radar, then check live status before checkout.',
+      'Once Human Hacks for Windows PC. Compare aimbot, player ESP, creature ESP, and radar, then check live status before you buy. Confirm modules on checkout.',
   },
-  '/products/sand-hacks/': {
-    title: 'SAND: Raiders of Sophie Hacks | Complete Suite & Utilities',
+  '/products/once-human-hacks/': {
+    title: 'Once Human Cheats | Complete Suite & Utilities',
     description:
-      'SAND: Raiders of Sophie Hacks for Windows PC. Open the Complete suite, then Cloud DMA, HWID Spoofer, and Skin Changer utilities before merchant checkout.',
+      'Once Human Cheats for Windows PC. Open the Complete suite, then Cloud DMA, HWID Spoofer, and Skin Changer utilities before merchant checkout.',
   },
-  '/products/sand-hacks/complete/': {
-    title: 'Complete Sand Hacks Suite | Aimbot, ESP, Trampler & Radar',
+  '/products/once-human-hacks/complete/': {
+    title: 'Once Human Hacks for PC | Complete Aimbot & ESP',
     description:
-      'The complete Sand Hacks suite lists aimbot, player ESP, trampler ESP, item ESP, radar, and object ESP on one key. Confirm the live module list before you buy.',
+      'The complete Once Human Hacks suite lists aimbot, player ESP, creature ESP, item ESP, radar, and object ESP on one key. Confirm the live module list before you buy.',
   },
-  '/products/sand-hacks/cloud-dma/': {
-    title: 'Cloud DMA | Single-PC Hyper-V Layer for Sand Hacks',
+  '/products/once-human-hacks/cloud-dma/': {
+    title: 'Cloud DMA | Single-PC Hyper-V Layer for Once Human',
     description:
-      'Cloud DMA is the single-PC Hyper-V delivery layer for Sand Hacks. DMA path, kernel bypass, automatic setup, plus GREENWARD, Static Server, and AWS listed separately.',
+      'Cloud DMA is the single-PC Hyper-V delivery layer for Once Human Hacks. DMA path, kernel bypass, automatic setup, plus GREENWARD, Static Server, and AWS listed separately.',
   },
-  '/products/sand-hacks/hwid-spoofer/': {
-    title: 'HWID Spoofer | Cleaner for SAND: Raiders of Sophie',
+  '/products/once-human-hacks/hwid-spoofer/': {
+    title: 'HWID Spoofer | Cleaner for Once Human on PC',
     description:
-      'HWID Spoofer lists hardware ID changes with a cleaner for SAND: Raiders of Sophie. Confirm the live listing on checkout. Cloud DMA required for full use.',
+      'HWID Spoofer lists hardware ID changes with a cleaner for Once Human. Confirm the live listing on checkout. Cloud DMA required for full use.',
   },
-  '/products/sand-hacks/skin-changer/': {
+  '/products/once-human-hacks/skin-changer/': {
     title: 'Skin Changer | Weapon Skins & In-Game Cosmetics',
     description:
       'Skin Changer is listed as a lightweight cosmetic client for weapon skins and outfits. Windows 10/11, HVCI stack, Cloud DMA required. Confirm the live list on checkout.',
   },
   '/blog/': {
-    title: 'Sand Hacks Guides | Setup, Aimbot, ESP & Extracts',
+    title: 'Once Human Cheat Guides | Setup, Aimbot, ESP & Risk',
     description:
-      'Sand Hacks guides for SAND: Raiders of Sophie: loader setup, aimbot tuning, ESP and radar layouts, account risk, and what to check after a game patch.',
+      'Once Human cheat guides for Windows PC: loader setup, aimbot tuning, ESP and radar layouts, account risk, and what to check after a game patch.',
   },
   '/reviews/': {
-    title: 'Sand Hacks Reviews | Aimbot, ESP & Loader',
+    title: 'Once Human Hacks Reviews | Aimbot, ESP & Loader',
     description:
-      'Community reviews on Sand Hacks for SAND: Raiders of Sophie covering loader setup, ESP clutter on extracts, trampler tracking, and how keys arrived after checkout.',
+      'Community reviews on Once Human Hacks covering loader setup, ESP clutter in settlements, creature tracking, and how keys arrived after checkout.',
   },
   '/forum/': {
-    title: 'Sand Hacks Forum | Loader, Aimbot, ESP & Patch Talk',
+    title: 'Once Human Hacks Forum | Loader, Aimbot, ESP & Patches',
     description:
-      'Sand Hacks forum for SAND: Raiders of Sophie: loader setup, aimbot FOV, trampler ESP, radar range, and patch-day notes from Windows PC players.',
+      'Once Human Hacks forum: loader setup, aimbot FOV, world ESP, radar range, and patch-day notes from Windows PC players.',
   },
   '/faq/': {
-    title: 'Sand Hacks FAQ | Setup, Plans & Account Risk',
+    title: 'Once Human Cheat FAQ | Setup, Plans & Account Risk',
     description:
-      'Sand Hacks FAQ: Windows requirements, aimbot vs ESP vs radar, Cloud DMA notes, HWID resets, and what to check after a SAND: Raiders of Sophie update.',
+      'Once Human cheat FAQ: Windows requirements, aimbot vs ESP vs radar, Cloud DMA notes, HWID resets, and what to check after a Once Human update.',
   },
   '/terms/': {
-    title: 'Terms | Sand Hacks License, Delivery & Refunds',
+    title: 'Terms | Once Human Hacks License, Delivery & Refunds',
     description:
-      'Terms for buying Sand Hacks on sandhacks.com: license use, delivery, refunds, and account risk on SAND: Raiders of Sophie for Windows PC.',
+      'Terms for buying Once Human Hacks on oncehumanhacks.com: license use, delivery, refunds, and account risk on Once Human for Windows PC.',
   },
   '/privacy/': {
-    title: 'Privacy | Cookies & Contact Data on Sand Hacks',
+    title: 'Privacy | Cookies & Contact Data on Once Human Hacks',
     description:
-      'How sandhacks.com uses analytics, cookies, and support messages when you browse Sand Hacks pages. Checkout runs on the merchant site.',
+      'How oncehumanhacks.com uses analytics, cookies, and support messages when you browse Once Human Hacks pages. Checkout runs on the merchant site.',
   },
   '/about/': {
-    title: 'About Sand Hacks | SAND: Raiders of Sophie Plans',
+    title: 'About Once Human Hacks | Plans, Forums & Checkout',
     description:
-      'About Sand Hacks: independent SAND: Raiders of Sophie Hacks comparisons, forum threads, checkout paths, and FAQs for Windows PC players.',
+      'About Once Human Hacks: independent Once Human cheat comparisons, forum threads, checkout paths, and FAQs for Windows PC players.',
   },
   '/support/': {
-    title: 'Sand Hacks Support | Loader, Keys & Checkout Help',
+    title: 'Once Human Hacks Support | Loader, Keys & Checkout',
     description:
-      'Support for Sand Hacks: loader setup, HWID resets, billing questions, ticket checklist, email, and Discord help after you buy SAND: Raiders of Sophie Hacks.',
+      'Support for Once Human Hacks: loader setup, HWID resets, billing questions, ticket checklist, email, and Discord help after you buy.',
   },
 };
 

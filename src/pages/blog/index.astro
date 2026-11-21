@@ -33,7 +33,7 @@ function searchBlob(post: (typeof posts)[number]) {
 <BaseLayout
   title={seo.title}
   description={seo.description}
-  logoAlt="Blog – Sand Hacks logo"
+  logoAlt="Blog – Once Human Hacks logo"
   jsonLd={[
     collectionPageSchema({ name: seo.title, description: seo.description, url: '/blog/' }),
     breadcrumbSchema(breadcrumbs),
@@ -47,8 +47,8 @@ function searchBlob(post: (typeof posts)[number]) {
       <div class="blog-index-hero__intro mx-auto mt-6 max-w-3xl text-center">
         <SectionHeader
           eyebrow="Guides & reviews"
-          title="Sand Hacks guides: aimbot, ESP, setup, and extracts"
-          desc="Aimbot tuning, ESP and radar layouts, setup, and account-risk notes for PC players comparing SAND: Raiders of Sophie Hacks before checkout."
+          title="Once Human cheat guides: aimbot, ESP, setup, and risk"
+          desc="Aimbot tuning, ESP and radar layouts, setup, and account-risk notes for PC players comparing Once Human Hacks before checkout."
           titleId="blog-index-title"
           centered
           headingLevel={1}
@@ -74,12 +74,12 @@ function searchBlob(post: (typeof posts)[number]) {
 
   <section class="py-10 md:py-14" aria-labelledby="blog-list-heading">
     <div class="mx-auto max-w-6xl px-5">
-      <h2 id="blog-list-heading" class="mb-2 text-center text-xl font-semibold normal-case">Latest Sand Hacks guides</h2>
-      <p class="mb-6 text-center text-sm text-muted-foreground">Posts cover aimbot tuning, loader setup, trampler ESP, and plan comparisons for SAND: Raiders of Sophie.</p>
+      <h2 id="blog-list-heading" class="mb-2 text-center text-xl font-semibold normal-case">Latest Once Human cheat guides</h2>
+      <p class="mb-6 text-center text-sm text-muted-foreground">Posts cover aimbot tuning, loader setup, creature ESP, and plan comparisons for Once Human.</p>
       <div class="blog-index-grid grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3" data-blog-grid id="blog-grid">
         {posts.length === 0 && (
           <p class="col-span-full rounded-xl border border-dashed border-border bg-muted/20 p-8 text-center text-muted-foreground">
-            Guides are syncing—refresh in a moment or run a production build locally.
+            Guides are syncing. Refresh in a moment or run a production build locally.
           </p>
         )}
         {posts.map((post, index) => (
@@ -93,7 +93,7 @@ function searchBlob(post: (typeof posts)[number]) {
         data-blog-empty
         role="status"
       >
-        No articles match that search. Try aimbot, ESP, trampler, or setup.
+        No articles match that search. Try aimbot, ESP, creature, or setup.
       </p>
     </div>
   </section>

@@ -17,7 +17,7 @@ const homeFaqs = getLandingFaqs();
 <BaseLayout
   title={seo.title}
   description={seo.description}
-  logoAlt="Sand Hacks – SAND: Raiders of Sophie logo"
+  logoAlt="Once Human Hacks logo"
   jsonLd={[websiteSchema(), organizationSchema(), faqPageSchema(homeFaqs.map((f, i) => ({ num: String(i + 1).padStart(2, '0'), q: f.q, a: f.a.replace(/<[^>]+>/g, '') })))]}
 >
   <HeroSection />

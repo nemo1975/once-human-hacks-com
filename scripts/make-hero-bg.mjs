@@ -1,4 +1,8 @@
-console.error(
-  'Hero background generation is disabled. Add SAND graphics manually. Do not generate replacement images.',
-);
-process.exit(1);
+import { spawnSync } from 'node:child_process';
+
+const result = spawnSync(process.execPath, ['scripts/generate-brand-visuals.mjs'], {
+  stdio: 'inherit',
+  cwd: process.cwd(),
+});
+
+process.exit(result.status ?? 1);

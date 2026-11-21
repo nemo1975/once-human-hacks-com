@@ -3,14 +3,14 @@ import path from 'node:path';
 import { resolveDistDir } from './dist-dir.mjs';
 
 const dist = resolveDistDir();
-const SITE = 'https://sandhacks.com';
+const SITE = 'https://oncehumanhacks.com';
 
 const samples = [
   { type: 'home', file: 'index.html' },
   { type: 'blog index', file: 'blog/index.html' },
-  { type: 'blog post', file: 'blog/best-sand-hacks/index.html' },
-  { type: 'product hub', file: 'products/sand-hacks/index.html' },
-  { type: 'product detail', file: 'products/sand-hacks/complete/index.html' },
+  { type: 'blog post', file: 'blog/best-once-human-hacks/index.html' },
+  { type: 'product hub', file: 'products/once-human-hacks/index.html' },
+  { type: 'product detail', file: 'products/once-human-hacks/complete/index.html' },
   { type: 'forum', file: 'forum/index.html' },
   { type: 'FAQ', file: 'faq/index.html' },
   { type: 'support', file: 'support/index.html' },

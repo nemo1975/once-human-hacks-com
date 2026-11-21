@@ -9,11 +9,12 @@ export const onRequest = defineMiddleware((context, next) => {
   }
 
   const productRewrites: Array<[string, string]> = [
-    ['/products/csgo-cheats', '/products/sand-hacks'],
-    ['/products/battlefield-6-cheats', '/products/sand-hacks'],
-    ['/products/fortnite-cheats', '/products/sand-hacks'],
-    ['/products/dota-2-cheats', '/products/sand-hacks'],
-    ['/products/cs2-cheats', '/products/sand-hacks'],
+    ['/products/sand-hacks', '/products/once-human-hacks'],
+    ['/products/csgo-cheats', '/products/once-human-hacks'],
+    ['/products/battlefield-6-cheats', '/products/once-human-hacks'],
+    ['/products/fortnite-cheats', '/products/once-human-hacks'],
+    ['/products/dota-2-cheats', '/products/once-human-hacks'],
+    ['/products/cs2-cheats', '/products/once-human-hacks'],
   ];
 
   for (const [from, to] of productRewrites) {
@@ -29,10 +30,10 @@ export const onRequest = defineMiddleware((context, next) => {
 
   if (
     url.pathname.includes('/esp-wallhack') ||
-    url.pathname === '/products/sand-hacks/aimbot' ||
-    url.pathname === '/products/sand-hacks/aimbot/' ||
-    url.pathname === '/products/sand-hacks/esp-radar' ||
-    url.pathname === '/products/sand-hacks/esp-radar/'
+    url.pathname === '/products/once-human-hacks/aimbot' ||
+    url.pathname === '/products/once-human-hacks/aimbot/' ||
+    url.pathname === '/products/once-human-hacks/esp-radar' ||
+    url.pathname === '/products/once-human-hacks/esp-radar/'
   ) {
     const rest = url.pathname
       .replace('/esp-wallhack', '/complete')

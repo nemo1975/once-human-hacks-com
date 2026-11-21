@@ -7,6 +7,7 @@ export type CheckoutProduct = keyof typeof CHECKOUT;
 export const CHECKOUT_SLUGS: Record<CheckoutProduct, string> = {
   cs2: 'cs2',
   sand: 'sand',
+  onceHuman: 'once-human',
   cloudDma: 'cloud-dma',
   hwidSpoofer: 'hwid-spoofer',
   skinChanger: 'skin-changer',
@@ -17,14 +18,14 @@ export const CHECKOUT_SLUG_TO_PRODUCT = Object.fromEntries(
 ) as Record<string, CheckoutProduct>;
 
 /** Direct merchant checkout URL — use on all purchase buttons and CTAs. */
-export function merchantCheckoutUrl(product: CheckoutProduct = 'cs2'): string {
+export function merchantCheckoutUrl(product: CheckoutProduct = 'onceHuman'): string {
   return CHECKOUT[product];
 }
 
-export const PRIMARY_CHECKOUT_PATH = merchantCheckoutUrl('cs2');
+export const PRIMARY_CHECKOUT_PATH = merchantCheckoutUrl('onceHuman');
 
 /** Internal path; middleware and `_redirects` 302 to merchant checkout (blog / legacy links). */
-export function checkoutPath(product: CheckoutProduct = 'cs2'): string {
+export function checkoutPath(product: CheckoutProduct = 'onceHuman'): string {
   return `/go/${CHECKOUT_SLUGS[product]}/`;
 }
 
@@ -35,7 +36,7 @@ const SLUG_TO_CHECKOUT: Record<string, CheckoutProduct> = {
 };
 
 export function checkoutForSlug(slug: string): string {
-  return merchantCheckoutUrl(SLUG_TO_CHECKOUT[slug] ?? 'cs2');
+  return merchantCheckoutUrl(SLUG_TO_CHECKOUT[slug] ?? 'onceHuman');
 }
 
 export function resolveCheckoutHref(href: string): string {
@@ -49,5 +50,5 @@ export function resolveCheckoutHref(href: string): string {
     }
   }
 
-  return merchantCheckoutUrl('cs2');
+  return merchantCheckoutUrl('onceHuman');
 }

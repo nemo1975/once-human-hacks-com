@@ -44,15 +44,15 @@ const featureGroups = getProductFeatureGroups(product.slug);
 const overviewDesc =
   product.kind === 'utility'
     ? 'How this utility fits Windows setup, Cloud DMA notes, and merchant checkout.'
-    : 'How this build fits city extracts, trampler raids, dune crossings, and patch-day workflows.';
+    : 'How this build fits settlement fights, PvE hunts, loot runs, and patch-day workflows.';
 const requirementsDesc =
   product.kind === 'utility'
     ? 'Confirm your Windows PC and any listed extras (Hyper-V, admin rights, Cloud DMA) before checkout.'
-    : 'Confirm your Windows PC and SAND: Raiders of Sophie setup before checkout or loader install.';
+    : 'Confirm your Windows PC and Once Human setup before checkout or loader install.';
 const relatedHeading = product.kind === 'utility' ? 'Main hacks' : 'Utilities';
 const relatedSubtitle =
   product.kind === 'utility'
-    ? 'Complete Sand Hacks uses the same card size as the utilities row on the product hub.'
+    ? 'Complete Once Human Hacks uses the same card size as the utilities row on the product hub.'
     : 'Cloud DMA, HWID Spoofer, and Skin Changer use the same three-card layout as the product hub.';
 const relatedProducts = product.kind === 'utility' ? hackPages : utilityPages;
 ---
@@ -98,7 +98,7 @@ const relatedProducts = product.kind === 'utility' ? hackPages : utilityPages;
   productName={product.name}
   desc={
     product.kind === 'utility'
-      ? `Modules listed with ${product.name}. Confirm the live list on merchant checkout—utility notes can change after a Windows or SAND update.`
+      ? `Modules listed with ${product.name}. Confirm the live list on merchant checkout. Utility notes can change after a Windows or Once Human update.`
       : undefined
   }
 />

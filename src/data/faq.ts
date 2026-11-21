@@ -38,9 +38,9 @@ export const siteFaqs: SiteFaqItem[] = [
     id: 'status',
     topic: 'setup',
     icon: 'faqStatus',
-    q: 'Where do I check if Sand Hacks are online?',
+    q: 'Where do I check if Once Human Hacks are online?',
     a: a(
-      'Use the live status banner on sandhacks.com and the Discord #status channel. Always confirm after a SAND client patch before you launch into an extract.',
+      'Use the live status banner on oncehumanhacks.com and the Discord #status channel. Always confirm after a Once Human client patch before you launch into a session.',
     ),
   },
   {
@@ -49,16 +49,16 @@ export const siteFaqs: SiteFaqItem[] = [
     icon: 'faqAfterBuy',
     q: 'What happens after I buy?',
     a: a(
-      'Checkout unlocks your operator portal with the loader, setup guide, and config library. Follow the portal steps before opening SAND: Raiders of Sophie on your PC.',
+      'Checkout unlocks your operator portal with the loader, setup guide, and config library. Follow the portal steps before opening Once Human on your PC.',
     ),
   },
   {
     id: 'ban-risk',
     topic: 'safety',
     icon: 'faqBanRisk',
-    q: 'Can I get banned using Sand Hacks?',
+    q: 'Can I get banned using Once Human Hacks?',
     a: a(
-      'Yes. Third-party tools can violate SAND game rules. Player reports can lead to account action. Read live status and accept the risk before use.',
+      'Yes. Third-party tools can violate Once Human game rules. Player reports can lead to account action. Read live status and accept the risk before use.',
     ),
   },
   {
@@ -67,7 +67,7 @@ export const siteFaqs: SiteFaqItem[] = [
     icon: 'faqPlatforms',
     q: 'Which platforms are supported?',
     a: a(
-      'SAND on Windows 10 or Windows 11 64-bit only. Console, macOS, and Linux are not supported.',
+      'Once Human on Windows 10 or Windows 11 64-bit only. Console, macOS, and Linux are not supported.',
     ),
   },
   {
@@ -83,15 +83,15 @@ export const siteFaqs: SiteFaqItem[] = [
     id: 'products-page',
     topic: 'products',
     icon: 'faqProductsPage',
-    q: 'Where are Sand Hacks plans listed?',
-    a: `${link('Sand Hacks product hub', `${ROUTES.products}#utilities`)} lists the ${link('Complete suite', `${productPath('complete')}#product-experience`)} plus Cloud DMA, HWID Spoofer, and Skin Changer utilities with module breakdowns and checkout links.`,
+    q: 'Where are Once Human Hacks plans listed?',
+    a: `${link('Once Human Hacks product hub', `${ROUTES.products}#utilities`)} lists the ${link('Complete suite', `${productPath('complete')}#product-experience`)} plus Cloud DMA, HWID Spoofer, and Skin Changer utilities with module breakdowns and checkout links.`,
   },
   {
     id: 'what-is-esp',
     topic: 'esp',
     icon: 'faqWhatIsEsp',
-    q: 'What is player ESP and radar in SAND?',
-    a: `Player ESP and the 2D radar show raiders, NPCs, Tramplers, loot, and extract context through dunes and city blocks. The ${completeTier('Complete suite')} lists those visuals plus aimbot and misc tools on the same key.`,
+    q: 'What is player ESP and radar in Once Human?',
+    a: `Player ESP and the 2D radar show players, NPCs, creatures, loot, and session context through open terrain and settlement blocks. The ${completeTier('Complete suite')} lists those visuals plus aimbot and misc tools on the same key.`,
     scopes: ['esp-radar', 'complete'],
   },
   {
@@ -106,7 +106,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'plans',
     icon: 'faqWhichTierEsp',
     q: 'Which plan do I need for ESP and radar?',
-    a: `The ${completeTier('Complete suite')} includes player and NPC ESP, boxes, skeletons, snaplines, health and shield, Trampler tracking, item ESP, adjustable radar, and the full aimbot stack plus compass and config tools.`,
+    a: `The ${completeTier('Complete suite')} includes player and NPC ESP, boxes, skeletons, snaplines, health and shield, creature tracking, item ESP, adjustable radar, and the full aimbot stack plus compass and config tools.`,
     scopes: ['esp-radar'],
   },
   {
@@ -122,7 +122,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'plans',
     icon: 'faqRankTiers',
     q: 'What does the Complete suite include?',
-    a: `The ${completeTier('Complete suite')} is the one Sand Hacks product: aimbot, player ESP, trampler ESP, item ESP, radar, object ESP, and misc tools on one key. Utilities (Cloud DMA, HWID Spoofer, Skin Changer) are separate. See the ${faqIndex('FAQ index')} for setup questions.`,
+    a: `The ${completeTier('Complete suite')} is the one Once Human Hacks product: aimbot, player ESP, creature ESP, item ESP, radar, object ESP, and misc tools on one key. Utilities (Cloud DMA, HWID Spoofer, Skin Changer) are separate. See the ${faqIndex('FAQ index')} for setup questions.`,
   },
   {
     id: 'stream-proof',
@@ -139,7 +139,7 @@ export const siteFaqs: SiteFaqItem[] = [
     icon: 'faqEacUpdate',
     q: 'What does the live status banner mean?',
     a: a(
-      'Status reflects the current build against recent SAND patches. It is not a permanent guarantee. Do not launch while the banner shows updating, testing, or offline.',
+      'Status reflects the current build against recent Once Human patches. It is not a permanent guarantee. Do not launch while the banner shows updating, testing, or offline.',
     ),
   },
   {
@@ -148,14 +148,14 @@ export const siteFaqs: SiteFaqItem[] = [
     icon: 'faqEspSafer',
     q: 'Is ESP / radar lower profile than aimbot?',
     a: a(
-      'ESP can look quieter in a clip than obvious snap aim, but it is still third-party software. SAND does not ignore overlays because you left aimbot disabled.',
+      'ESP can look quieter in a clip than obvious snap aim, but it is still third-party software. Once Human does not ignore overlays because you left aimbot disabled.',
     ),
   },
   {
     id: 'external-loader',
     topic: 'products',
     icon: 'faqExternalLoader',
-    q: 'Does the loader install into my SAND game folder?',
+    q: 'Does the loader install into my Once Human game folder?',
     a: `The loader runs external with cloud config sync. Nothing is dropped into the game directory. Risk still applies. See ${productsIndex('product requirements')} for specs.`,
   },
   {
@@ -163,14 +163,14 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'plans',
     icon: 'faqComparePlans',
     q: 'Where do I compare plans side by side?',
-    a: `Each product page includes a feature list and compare context. The ${faqIndex('setup FAQ')} collects setup, safety, and plan answers, or browse ${forumHub('SAND player forum')} for extract and Trampler tips.`,
+    a: `Each product page includes a feature list and compare context. The ${faqIndex('setup FAQ')} collects setup, safety, and plan answers, or browse ${forumHub('Once Human player forum')} for session and creature tips.`,
   },
   {
     id: 'who-esp',
     topic: 'plans',
     icon: 'faqWhoLite',
     q: 'Who should use ESP / radar?',
-    a: `Raiders who want city and dune awareness (players, NPCs, loot, Tramplers, extract timing). ESP and radar ship on the ${completeTier('Complete suite')} with the rest of the Sand Hacks modules. Toggle aim off in the menu if you only want overlays.`,
+    a: `Players who want city and open-world awareness (players, NPCs, loot, creatures, session timing). ESP and radar ship on the ${completeTier('Complete suite')} with the rest of the Once Human Hacks modules. Toggle aim off in the menu if you only want overlays.`,
     scopes: ['esp-radar'],
   },
   {
@@ -178,7 +178,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'plans',
     icon: 'faqWhoPro',
     q: 'Who should use aimbot?',
-    a: `PC players who want smooth tracking, FOV limits, bone priority, and visibility checks during extract fights. Aimbot ships on the ${completeTier('Complete suite')} with ESP, trampler, radar, and misc tools on the same key.`,
+    a: `PC players who want smooth tracking, FOV limits, bone priority, and visibility checks during session fights. Aimbot ships on the ${completeTier('Complete suite')} with ESP, creature, radar, and misc tools on the same key.`,
     scopes: ['aimbot'],
   },
   {
@@ -186,16 +186,16 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'plans',
     icon: 'faqWhoElite',
     q: 'Who should buy Complete?',
-    a: `Players who want aimbot, ESP, Trampler tracking, item ESP, radar, compass tools, and cloud configs on one license for city runs, dune crossings, and Trampler hijacks.`,
+    a: `Players who want aimbot, ESP, creature tracking, item ESP, radar, compass tools, and cloud configs on one license for settlement runs, open-world routes, and creature hijacks.`,
     scopes: ['complete'],
   },
   {
     id: 'javelin-update',
     topic: 'safety',
     icon: 'faqEacUpdate',
-    q: 'What should I do after a SAND update?',
+    q: 'What should I do after a Once Human update?',
     a: a(
-      'Check sandhacks.com status and Discord #status. Wait until the banner shows online, then reload portal presets instead of reusing old smoothing or ESP range values from before the patch.',
+      'Check oncehumanhacks.com status and Discord #status. Wait until the banner shows online, then reload portal presets instead of reusing old smoothing or ESP range values from before the patch.',
     ),
   },
   {
@@ -204,22 +204,22 @@ export const siteFaqs: SiteFaqItem[] = [
     icon: 'faqDiscordHelp',
     q: 'How do I get install help?',
     a: a(
-      'Open Discord after purchase with your order email, Windows version, and how you launch SAND. Staff walk through loader setup and conservative presets live.',
+      'Open Discord after purchase with your order email, Windows version, and how you launch Once Human. Staff walk through loader setup and conservative presets live.',
     ),
   },
   {
     id: 'modes-ranked',
     topic: 'plans',
     icon: 'faqZoomRanked',
-    q: 'Do plans work for extracts and PvPvE raids?',
-    a: `Yes. ${completeTier('Complete')} includes portal config slots for aimbot, ESP, trampler, and radar. Tune ESP max distance and aimbot smoothing in safer zones before you push a contested extract or Trampler deck.`,
+    q: 'Do plans work for PvP and PvE?',
+    a: `Yes. ${completeTier('Complete')} includes portal config slots for aimbot, ESP, creature, and radar. Tune ESP max distance and aimbot smoothing in safer zones before you push a contested fight or a farm route.`,
   },
   {
     id: 'radar-context',
     topic: 'esp',
     icon: 'faqZoomHack',
-    q: 'Does ESP show Tramplers and captain quarters loot?',
-    a: `Trampler tracking, loot visualization, and radar indicators are listed on ${completeTier('Complete Sand Hacks')}. Object ESP modules cover containers, Dreadnaught areas, captain quarters, Aurogen crystals, and buried treasure where the merchant lists them—confirm on checkout.`,
+    q: 'Does ESP show creatures and loot rooms?',
+    a: `Creature tracking, loot visualization, and radar indicators are listed on ${completeTier('Complete Once Human Hacks')}. Object ESP modules cover containers, turrets, loot rooms, resource nodes, and corpse loot where the merchant lists them. Confirm on checkout.`,
     scopes: ['complete', 'esp-radar'],
   },
   {
@@ -227,16 +227,16 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'scripts',
     icon: 'faqAutoFarm',
     q: 'Which aimbot options ship on Complete?',
-    a: `Customizable aim hotkey, adjustable FOV, bone selection, humanized trajectories, aim prediction, visibility checks, dynamic FOV, aim smoothing, team filtering, and maximum target distance—all on the ${completeTier('Complete Sand Hacks')} listing.`,
+    a: `Customizable aim hotkey, adjustable FOV, bone selection, humanized trajectories, aim prediction, visibility checks, dynamic FOV, aim smoothing, team filtering, and maximum target distance, all on the ${completeTier('Complete Once Human Hacks')} listing.`,
     scopes: ['aimbot', 'complete'],
   },
   {
     id: 'private-hacks',
     topic: 'safety',
     icon: 'faqPrivateCheats',
-    q: 'What are private Sand Hacks?',
+    q: 'What are private Once Human Hacks?',
     a: a(
-      'Private means per-user keys and maintained builds delivered through the portal, not public zip packs. Complete Sand Hacks covers aimbot, ESP, trampler, radar, and misc tools for Windows PC.',
+      'Private means per-user keys and maintained builds delivered through the portal, not public zip packs. Complete Once Human Hacks covers aimbot, ESP, creature, radar, and misc tools for Windows PC.',
     ),
   },
   {
@@ -252,22 +252,22 @@ export const siteFaqs: SiteFaqItem[] = [
     id: 'forum-guides',
     topic: 'products',
     icon: 'faqMore',
-    q: 'Where are setup and extract guides?',
-    a: `${forumHub('Forum guides')} hosts patch-day notes, OBS capture threads, and city extract tuning tips. Product pages remain authoritative for checkout and module lists.`,
+    q: 'Where are setup and play guides?',
+    a: `${forumHub('Forum guides')} hosts patch-day notes, OBS capture threads, and settlement overlay tuning tips. Product pages remain authoritative for checkout and module lists.`,
   },
   {
     id: 'upgrade-path',
     topic: 'plans',
     icon: 'faqComparePlans',
     q: 'Is there a smaller plan than Complete?',
-    a: `No. ${completeTier('Complete Sand Hacks')} is the only main hacks product. Aimbot, ESP, trampler, radar, and misc tools ship on that one key. Cloud DMA, HWID Spoofer, and Skin Changer stay on the ${productsIndex('utilities row')}.`,
+    a: `No. ${completeTier('Complete Once Human Hacks')} is the only main hacks product. Aimbot, ESP, creature, radar, and misc tools ship on that one key. Cloud DMA, HWID Spoofer, and Skin Changer stay on the ${productsIndex('utilities row')}.`,
   },
   {
     id: 'faq-more',
     topic: 'all',
     icon: 'faqMore',
     q: 'Where is the full FAQ?',
-    a: `Landing pages show quick answers; the ${faqIndex('full FAQ list')} lists every topic. For long-form threads on smoothing, Tramplers, and stream capture, visit the ${forumHub('community discussions')}.`,
+    a: `Landing pages show quick answers; the ${faqIndex('full FAQ list')} lists every topic. For long-form threads on smoothing, creatures, and stream capture, visit the ${forumHub('community discussions')}.`,
   },
   {
     id: 'cloud-dma-what',
@@ -283,7 +283,7 @@ export const siteFaqs: SiteFaqItem[] = [
     id: 'cloud-dma-required',
     topic: 'setup',
     icon: 'faqProductsPage',
-    q: 'Do I need Cloud DMA for Sand Hacks?',
+    q: 'Do I need Cloud DMA for Once Human Hacks?',
     a: a(
       'The merchant bundles catalog access around the Cloud DMA delivery model. HWID Spoofer and Skin Changer listings also say Cloud DMA is required for full functionality. Confirm on checkout before you pay.',
     ),
@@ -295,7 +295,7 @@ export const siteFaqs: SiteFaqItem[] = [
     icon: 'faqBanRisk',
     q: 'What does the HWID Spoofer list?',
     a: a(
-      'Hardware identifier changes (disk serials, MAC addresses, GPU IDs, and related IDs) with a cleaner for SAND: Raiders of Sophie. Confirm the live listing on checkout. Administrator rights and Cloud DMA are listed as required.',
+      'Hardware identifier changes (disk serials, MAC addresses, GPU IDs, and related IDs) with a cleaner for Once Human. Confirm the live listing on checkout. Administrator rights and Cloud DMA are listed as required.',
     ),
     scopes: ['hwid-spoofer'],
   },
@@ -324,7 +324,7 @@ export function getAllFaqs(): SiteFaqItem[] {
 /** Shared FAQ block copy + filters (home, /faq/, products). */
 export const SITE_FAQ_SECTION_COPY = {
   eyebrow: 'All topics',
-  title: 'FAQ: Sand Hacks',
+  title: 'FAQ: Once Human Hacks',
   subtitle: 'Filter by plans, ESP & radar, aimbot, products, setup, and safety.',
 } as const;
 
@@ -341,7 +341,7 @@ export const SITE_FAQ_FILTER_TOPICS: FaqTopic[] = [
 /** Section copy when FAQ list is scoped to the current page (not /faq/). */
 export const CONTEXTUAL_FAQ_SECTION_COPY = {
   eyebrow: 'Hacks FAQ',
-  title: 'SAND questions',
+  title: 'Once Human questions',
   subtitle: 'Straight answers on aimbot, ESP, account risk, and setup. See the full FAQ for every topic.',
 } as const;
 
@@ -387,14 +387,14 @@ export const compareRows = [
     'esp-radar': true,
   },
   {
-    feature: 'Trampler tracking & radar indicators',
+    feature: 'Creature tracking & radar indicators',
     icon: 'compareRadarHack' as const,
     complete: true,
     aimbot: false,
     'esp-radar': true,
   },
   {
-    feature: 'Item ESP (weapons, keys, Aurogen, valuables)',
+    feature: 'Item ESP (weapons, keys, resources, valuables)',
     icon: 'compareWardLocator' as const,
     complete: true,
     aimbot: false,

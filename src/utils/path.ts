@@ -10,7 +10,7 @@ export function withTrailingSlash(path: string): string {
   return hash ? `${normalized}#${hash}` : normalized;
 }
 
-/** Former /cheats/* and CSGO URLs → current Sand Hacks routes. */
+/** Legacy URL map → current Once Human Hacks routes. */
 export const LEGACY_PATH_MAP: Record<string, string> = {
   '/cheats': PRODUCT_BASE,
   '/cheats/': PRODUCT_BASE,
@@ -28,6 +28,16 @@ export const LEGACY_PATH_MAP: Record<string, string> = {
   '/products/csgo-cheats/': PRODUCT_BASE,
   '/products/battlefield-6-cheats': PRODUCT_BASE,
   '/products/battlefield-6-cheats/': PRODUCT_BASE,
+  '/products/sand-hacks': PRODUCT_BASE,
+  '/products/sand-hacks/': PRODUCT_BASE,
+  '/products/sand-hacks/complete': `${PRODUCT_BASE}complete/`,
+  '/products/sand-hacks/complete/': `${PRODUCT_BASE}complete/`,
+  '/products/sand-hacks/cloud-dma': `${PRODUCT_BASE}cloud-dma/`,
+  '/products/sand-hacks/cloud-dma/': `${PRODUCT_BASE}cloud-dma/`,
+  '/products/sand-hacks/hwid-spoofer': `${PRODUCT_BASE}hwid-spoofer/`,
+  '/products/sand-hacks/hwid-spoofer/': `${PRODUCT_BASE}hwid-spoofer/`,
+  '/products/sand-hacks/skin-changer': `${PRODUCT_BASE}skin-changer/`,
+  '/products/sand-hacks/skin-changer/': `${PRODUCT_BASE}skin-changer/`,
   '/products/sand-hacks/esp-wallhack': `${PRODUCT_BASE}complete/`,
   '/products/sand-hacks/esp-wallhack/': `${PRODUCT_BASE}complete/`,
   '/products/sand-hacks/aimbot': `${PRODUCT_BASE}complete/`,
